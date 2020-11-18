@@ -1,12 +1,16 @@
 import './App.css';
-import globalStyles from './assets/styles/globalStyles';
+import GlobalStyles from './assets/styles/global';
+import BottomNavigation from './components/BottomNavigation';
+import HeaderNav from './components/Header';
 import Routes from './routes';
 
 function App() {
   return (
     <>
-      <globalStyles />
+      <GlobalStyles />
+      <HeaderNav />
       <Routes />
+      <BottomNavigation />
     </>
   );
 }

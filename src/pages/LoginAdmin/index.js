@@ -1,10 +1,9 @@
-import React from 'react'
-import HeaderNav from '../../components/Header';
+import React from 'react';
 
 const LoginAdmin = () => {
   return (
     <div>
-      <HeaderNav />
+      Admin
     </div>
   )
 }

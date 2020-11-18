@@ -8,7 +8,7 @@ export default createGlobalStyle`
     font-family: 'Roboto', sans-serif;
   }
   body {
-    background: #eee;
+    background: #f5f5f5;
   }
   button,
   input {

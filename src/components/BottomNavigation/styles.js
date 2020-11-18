@@ -30,6 +30,8 @@ export const CircleButton = styled.div`
   background-color: white;
   position: absolute;
   bottom: 24px;
+  left: 50%;
+  transform: translate(-50%);
   display: flex;
   justify-content: center;
   align-items: center;

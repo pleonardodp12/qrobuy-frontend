@@ -1,10 +1,10 @@
 import React from 'react'
-import Header from '../../components/Header'
+import HeaderNav from '../../components/Header';
 
 const LoginAdmin = () => {
   return (
     <div>
-      <Header />
+      <HeaderNav />
     </div>
   )
 }

@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Header } from './styles';
 
-const Header = ({ nameRoute }) => {
+const HeaderNav = ({ nameRoute }) => {
   return (
-    <header className="header">
+    <Header className="header">
       { nameRoute ? <h4>{nameRoute}</h4> : <h4>QroBuy</h4>}
       <img alt="logo" />
-    </header>
+    </Header>
   )
 }
 
-export default Header;
+export default HeaderNav;

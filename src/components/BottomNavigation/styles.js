@@ -15,6 +15,7 @@ export const BottomBar = styled.div`
   svg {
     width: 32px;
     height: 32px;
+    color: white;
     cursor: pointer;
     &:hover{
     opacity: .8;

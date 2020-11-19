@@ -1,9 +1,7 @@
 import React from 'react';
-
-import { BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import { BottomBar, CircleButton } from './styles';
 import { AiFillHome, AiFillShopping, AiOutlineQuestionCircle } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
 
 const BottomNavigation = () => {
   return (

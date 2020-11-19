@@ -1,10 +1,27 @@
 import React from 'react';
+import CardProduct from '../../components/CardProduct';
+import ScrollContainer from 'react-indiana-drag-scroll';
+import { Container } from './styles';
 
 const HomeScreen = () => {
   return (
-    <div>
-      HOME
-    </div>
+    <Container>
+      <ScrollContainer className="scroll-container" style={{ "display":"flex"}}>
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+        <CardProduct />
+      </ScrollContainer>
+      
+    </Container>
   )
 }
 

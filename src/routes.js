@@ -10,11 +10,11 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Route path="/" exact component={HomeScreen}/>
-      <Route path="/cart" exact component={CartScreen}/>
-      <Route path="/faq" exact component={FAQScreen}/>
-      <Route path="/admin" exact component={LoginAdmin} />
+      <Route path="/cart" component={CartScreen}/>
+      <Route path="/faq" component={FAQScreen}/>
+      <Route path="/admin" component={LoginAdmin} />
     </BrowserRouter>
-  )
-}
+  );
+};
 
 export default Routes;

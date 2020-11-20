@@ -7,7 +7,7 @@
 <br>
 
 
-## :sparkles: Lighthouse e prioridades durante o desevolvimento
+## :sparkles: Lighthouse e prioridades durante o desenvolvimento
 <div align="center">
 <img src="" alt="Análise pelo LightHouse">
 </div>

@@ -39,6 +39,6 @@ Pronto! Você conseguiu rodar a aplicação.
 - [ ] Componentização da aplicação
 - [ ] Páginas montadas
 - [ ] Navegação entre rotas
-- [ ] Intergração com o backend
+- [ ] Integração com o backend
 - [ ] Gerenciamento de estado da aplicação
 - [ ] Deploy no heroku

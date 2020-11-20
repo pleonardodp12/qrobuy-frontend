@@ -5,7 +5,7 @@ const HeaderNav = ({ nameRoute }) => {
   return (
     <Header className="header">
       { nameRoute ? <h4>{nameRoute}</h4> : <h4>QroBuy</h4>}
-      <img alt="logo" />
+      <img src="../../assets/images/logo.png" alt="logo" />
     </Header>
   )
 }

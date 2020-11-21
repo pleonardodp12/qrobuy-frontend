@@ -11,4 +11,9 @@ export const Header = styled.header`
   justify-content: space-around;
   align-items: center;
   padding: 0 16px;
+
+  img {
+    width: 120px;
+    height: 100%;
+  }
 `;

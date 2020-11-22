@@ -5,6 +5,7 @@ import LoginAdmin from './pages/LoginAdmin';
 import HomeScreen from './pages/HomeScreen';
 import CartScreen from './pages/CartScreen';
 import FAQScreen from './pages/FAQScreen';
+import BottomNavigation from './components/BottomNavigation';
 
 const Routes = () => {
   return (
@@ -13,6 +14,7 @@ const Routes = () => {
       <Route path="/cart" component={CartScreen}/>
       <Route path="/faq" component={FAQScreen}/>
       <Route path="/admin" component={LoginAdmin} />
+      <BottomNavigation />
     </BrowserRouter>
   );
 };

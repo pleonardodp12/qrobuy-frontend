@@ -21,7 +21,7 @@ export const Header = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-left: 1px solid whitesmoke;
+    border-left: 1px solid #eeeeee55;
     svg {
       width: 22px;
       height: 22px;

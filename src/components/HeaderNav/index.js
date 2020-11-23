@@ -8,7 +8,7 @@ const HeaderNav = () => {
   return (
     <Header>
       <img src={logo} alt="logo" />
-      <Link to="/login" className="button-login"><FaUserAlt /></Link>
+      <Link to="/user" className="button-login"><FaUserAlt /></Link>
     </Header>
   )
 }

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { ButtonComponent } from './styles';
 
-const ButtonConfirm = ({ textButton }) => {
+const ButtonConfirm = ({ textButton, ...rest }) => {
   return (
-    <ButtonComponent>
+    <ButtonComponent {...rest}>
       {textButton}
     </ButtonComponent>
   )

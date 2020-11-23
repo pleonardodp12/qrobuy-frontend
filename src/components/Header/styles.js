@@ -11,6 +11,7 @@ export const Header = styled.header`
   justify-content: space-around;
   align-items: center;
   padding: 0 16px;
+  z-index: 5;
 
   img {
     width: 120px;

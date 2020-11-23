@@ -6,12 +6,14 @@ export const BottomBar = styled.div`
 
   background-color: #BA181B;
   position: fixed;
+  z-index: 5;
   bottom: 0;
   color: white;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
+  
   svg {
     width: 32px;
     height: 32px;

@@ -4,6 +4,7 @@ export const ButtonContainer = styled.div`
   width: 90%;
   max-width: 300px;
   height: 65px;
+  aling-self: center;
   background: #E5383B;
   border-radius: 8px;
   color: white;
@@ -14,14 +15,17 @@ export const ButtonContainer = styled.div`
   justify-content: space-evenly;
   position: relative;
   transition: ease .3s;
+  
   div {
     display: flex;
     align-items: center;
   }
+  
   svg {
     width: 32px;
     height: 32px;
   }
+  
   &:hover {
     background: #F8483F;
     color: #e5e5e5;

@@ -3,9 +3,11 @@ import styled from 'styled-components';
 export const Card = styled.div`
   width: 100%;
   height: 100%;
-  padding: 0px 25px 20px 10px;
+  padding: 0px 25px 80px 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin: 20px 8px;
 `;
 
@@ -62,4 +64,5 @@ export const ProductDescription = styled.div`
   text-align: justify;
   padding: 10px;
   display: flex;
+  margin-bottom: 10px
 `

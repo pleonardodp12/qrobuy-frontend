@@ -7,10 +7,12 @@ import CartScreen from './pages/CartScreen';
 import FAQScreen from './pages/FAQScreen';
 import CheckoutSignup from './pages/CheckoutSignup';
 import BottomNavigation from './components/BottomNavigation';
+import HeaderNav from './components/HeaderNav';
 
 const Routes = () => {
   return (
     <BrowserRouter>
+      <HeaderNav />
       <Route path="/" exact component={HomeScreen}/>
       <Route path="/cart" component={CartScreen}/>
       <Route path="/faq" component={FAQScreen}/>

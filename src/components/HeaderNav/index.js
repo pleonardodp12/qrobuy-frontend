@@ -1,12 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Header } from './styles';
+import { FaUserAlt } from 'react-icons/fa';
 import logo from '../../assets/images/logo-test2.png';
 
-const HeaderNav = ({ nameRoute }) => {
+const HeaderNav = () => {
   return (
     <Header>
-      { nameRoute ? <h4>{nameRoute}</h4> : <h4>QroBuy</h4>}
       <img src={logo} alt="logo" />
+      <Link to="/login" className="button-login"><FaUserAlt /></Link>
     </Header>
   )
 }

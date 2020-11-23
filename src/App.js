@@ -1,11 +1,11 @@
 import GlobalStyles from './assets/styles/global';
-import { Header } from './components/Header/styles';
+import HeaderNav from './components/HeaderNav';
 import Routes from './routes';
 
 function App() {
   return (
     <>
-      <Header />
+      <HeaderNav />
       <GlobalStyles />
       <Routes />
     </>

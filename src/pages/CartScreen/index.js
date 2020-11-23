@@ -10,7 +10,7 @@ import { ContainerCart } from './styles';
 const CartScreen = () => {
   function renderCartProduct() {
     let listProduct = [];
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 1; i++) {
       listProduct.push(<CardProduct />);
     }
     return listProduct;
@@ -18,7 +18,6 @@ const CartScreen = () => {
 
   return (
     <ContainerCart>
-      <ProductInCart />
       <ProductInCart />
       <ButtonConfirm textButton="Finalizar"/>
 

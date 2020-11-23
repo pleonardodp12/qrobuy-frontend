@@ -1,7 +1,7 @@
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import React from 'react'
-import LoginAdmin from './pages/LoginAdmin';
+import LoginAdmin from './Admin/LoginAdmin';
 import HomeScreen from './pages/HomeScreen';
 import CartScreen from './pages/CartScreen';
 import FAQScreen from './pages/FAQScreen';

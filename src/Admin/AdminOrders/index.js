@@ -1,22 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import BottomNavigation from "../../components/BottomNavigation";
 import SearchButton from "../../components/SearchButton";
+import { Container, ListWrapper } from "./styles";
+
+import { mockedOrders } from "./__mocks__/mocked-orders"; // mocked values
+import { OrderDetails } from "./components/order-details";
+import { renderOrdersList } from "./components/order-list";
 
 const AdminOrders = () => {
+  // const [orders, setOrders] = useState([]);
+  const [details, setDetails] = useState(false);
+  const [order, setOrder] = useState({});
+
+  const getOrders = async () => {
+    // const ordersList = await qrobuyServer.get("/orders");
+    // setOrders(ordersList.body);
+  };
+
+  useEffect(() => {
+    // getOrders();
+  }, []);
+
+  const toggleDetails = (order) => {
+    setDetails(!details);
+    setOrder(order);
+  };
+
   return (
     <>
-      <div>
-        <SearchButton />
-        <div style={{ display: "flex", justifyContent: 'space-around'}}>
-          <div>
-            <p>Alexandre Santos</p>
-            <p>8FH2U37D</p>
-          </div>
-          <div>
-            <p>289,00 R$</p>
-            <p>16/11/2020</p>
-          </div>
-        </div>
-      </div>
+      <Container>
+        {details ? (
+          <OrderDetails order={order} setDetails={setDetails} />
+        ) : (
+          <>
+            <SearchButton /> {/* orders*/}
+            <ListWrapper>
+              {renderOrdersList(mockedOrders, toggleDetails)}
+            </ListWrapper>
+          </>
+        )}
+        <BottomNavigation />
+      </Container>
     </>
   );
 };

@@ -19,7 +19,9 @@ const CardProduct = ({ product }) => {
         <img src={product.image} alt={product.name} />
       </Link>
       <CardBody>
-        <CardTitle>{product.name} <CardRating>{product.likes}<AiFillHeart/></CardRating></CardTitle>
+        <Link to={`/product/${product._id}`}>
+          <CardTitle>{product.name} <CardRating>{product.likes}<AiFillHeart/></CardRating></CardTitle>
+        </Link>
         <CardSubTitle>{product.description}</CardSubTitle>
       </CardBody>
 

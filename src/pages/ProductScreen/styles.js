@@ -1,14 +1,14 @@
 import styled from 'styled-components';
 
-export const Card = styled.div`
+export const ProductWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  padding: 0px 25px 80px 10px;
+  height: auto;
+  min-height: 90vh;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin: 20px 8px;
+  margin: 20px 0;
 `;
 
 export const ProductMain = styled.div`
@@ -36,7 +36,7 @@ export const CardTitle = styled.h4`
   font-size: 24px;
   font-weight: 700;
   margin: 0 20px 0 20px;
-  display: flex;a
+  display: flex;
 `;
 
 export const CardSubTitle = styled.h5`

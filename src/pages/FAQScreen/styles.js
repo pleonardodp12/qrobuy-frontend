@@ -55,10 +55,12 @@ export const Question = styled.div`
 
 const down = keyframes`
   from {
+    opacity: 0.2;
     transform: translateY(-10px);
   }
 
   to {
+    opacity: 1;
     transform: translateY(0px);
   }
 `;
@@ -69,7 +71,7 @@ export const Answer = styled.div`
   margin: 8px 0;
   border-top: .5px solid #ffffff55;
   padding-top: 4px;
-  animation: ${down} .2s ease-in;
+  animation: ${down} .35s ease-in-out;
 `;
 
 export const ContainerFaqEmail = styled.div`
@@ -97,6 +99,10 @@ export const ContainerFaqEmail = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: .3s;
+    &:hover {
+      opacity: .9;
+    }
     svg {
       margin-left: 8px;
       width: 24px;

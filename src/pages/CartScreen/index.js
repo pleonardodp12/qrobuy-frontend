@@ -8,14 +8,6 @@ import { ContainerCart, ButtonContinue, ProductOrderInfo } from './styles';
 
 
 const CartScreen = () => {
-  function renderCartProduct() {
-    let listProduct = [];
-    for (let i = 0; i < 1; i++) {
-      listProduct.push(<CardProduct />);
-    }
-    return listProduct;
-  }
-
   return (
     <ContainerCart>
       <ProductInCart />
@@ -28,7 +20,7 @@ const CartScreen = () => {
       <ButtonContinue> Continuar Comprando</ButtonContinue>
 
       <ScrollContainer className="scroll-container" style={{ display: "flex" }}>
-        {renderCartProduct()}
+        <CardProduct product='' />
       </ScrollContainer>
     </ContainerCart>
   )

@@ -12,12 +12,21 @@ export const Card = styled.div`
   align-items: center;
   flex-direction: column;
   margin: 40px 8px;
+  a{
+    width: 100%;
+    align-self: center;
+    position: relative;
+    img {
+      width: 60%;
+      position: relative;
+      top: -40px;
+      left: 20%;
+    }
+  }
 `;
 
 export const CardImage = styled.img`
-  width: 70%;
-  position: relative;
-  top: -40px;
+ 
 
 `;
 

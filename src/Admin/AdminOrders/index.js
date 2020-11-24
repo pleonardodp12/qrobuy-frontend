@@ -1,11 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
+import BottomNavigation from "../../components/BottomNavigation";
+import SearchButton from "../../components/SearchButton";
+import { Container, ListWrapper } from "./styles";
+
+import { mockedOrders } from "./__mocks__/mocked-orders"; // mocked values
+import { OrderDetails } from "./components/order-details";
+import { renderOrdersList } from "./components/order-list";
 
 const AdminOrders = () => {
-  return (
-    <div>
-      Admin
-    </div>
-  )
-}
+  // const [orders, setOrders] = useState([]);
+  const [details, setDetails] = useState(false);
+  const [order, setOrder] = useState({});
 
-export default AdminOrders
+  const getOrders = async () => {
+    // const ordersList = await qrobuyServer.get("/orders");
+    // setOrders(ordersList.body);
+  };
+
+  useEffect(() => {
+    // getOrders();
+  }, []);
+
+  const toggleDetails = (order) => {
+    setDetails(!details);
+    setOrder(order);
+  };
+
+  return (
+    <>
+      <Container>
+        {details ? (
+          <OrderDetails order={order} setDetails={setDetails} />
+        ) : (
+          <>
+            <SearchButton /> {/* orders*/}
+            <ListWrapper>
+              {renderOrdersList(mockedOrders, toggleDetails)}
+            </ListWrapper>
+          </>
+        )}
+        <BottomNavigation />
+      </Container>
+    </>
+  );
+};
+
+export default AdminOrders;

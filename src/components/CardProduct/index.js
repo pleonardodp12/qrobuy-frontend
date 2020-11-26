@@ -9,8 +9,9 @@ import {
   CardFooter,
   Button,
   ContainerButtons } from './styles';
-import { AiFillHeart, AiFillShopping } from 'react-icons/ai';
+import { AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
+import formatCurrency from '../../utils/formatCurrency';
 
 const CardProduct = ({ product }) => {
   return (
@@ -26,9 +27,8 @@ const CardProduct = ({ product }) => {
       </CardBody>
 
       <CardFooter>
-          <ProductPrice>{product.price}</ProductPrice>
+          <ProductPrice>{formatCurrency(product.price)}</ProductPrice>
           <ContainerButtons>
-            <Button><AiFillShopping/>+</Button>
             <Button><AiFillHeart/></Button>
           </ContainerButtons>
         </CardFooter>

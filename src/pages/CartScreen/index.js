@@ -1,23 +1,66 @@
 import React from 'react';
-import ProductInCart from '../../components/ProductInCart';
+import { connect } from 'react-redux';
+import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
 import ButtonConfirm from '../../components/ButtonConfirm';
-import { ContainerCart, ButtonContinue, ProductOrderInfo } from './styles';
+import formatCurrency from '../../utils/formatCurrency';
+import {
+  ContainerCart,
+  ProductOrderInfo,
+  ProductInCartCard,
+  ProductInfo,
+  QuantityProduct,
+  QuantityButton,
+  More,
+  Less
+} from './styles';
 
 
-
-const CartScreen = () => {
+const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
   return (
+    <>
+    {console.log('***CART ITEMS', cartItems)}
+    {cartItems.cartItem !== [] ? (
     <ContainerCart>
-      <ProductInCart />
+      {cartItems.map(cartItem => (
+        <ProductInCartCard key={cartItem._id}>
+          {console.log('CARTITEM',cartItem)}
+          <img src={cartItem.image} alt="produto" />
+          <ProductInfo>
+            <h3>{cartItem.name}</h3>
+          </ProductInfo>
+          <QuantityProduct>
+            Quantidade: {cartItem.count}
+            <h4>{formatCurrency(cartItem.price)}</h4>
+          </QuantityProduct>
+          <QuantityButton>
+            <More onClick={() => addToCart(cartItem)}>+</More>
+            
+            <Less onClick={() => removeFromCart(cartItem)}>X</Less>
+          </QuantityButton>
+        </ProductInCartCard>
+      ))}
 
       <ProductOrderInfo>
-        Total: 1200,00 R$;
+        Total:
+        {formatCurrency(
+          cartItems.reduce((a, c) => a + c.price * c.count, 0))}
       </ProductOrderInfo>
 
       <ButtonConfirm textButton="Finalizar"/>
-      <ButtonContinue> Continuar Comprando</ButtonContinue>
     </ContainerCart>
+    ): (<div> carrinho vazio</div>)}
+    
+    </>
   )
 }
 
-export default CartScreen;
+const mapStateToProps = (state) => {
+  console.log('STATE.cart.items', state.cart.cartItems)
+  return { cartItems: state.cart.cartItems };
+};
+
+export default connect(mapStateToProps,{
+  addToCart,
+  removeFromCart,
+}
+)(CartScreen)

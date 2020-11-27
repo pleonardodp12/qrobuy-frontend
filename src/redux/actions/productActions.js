@@ -1,13 +1,15 @@
-import { FETCH_PRODUCTS } from '../../types';
-import api from '../../services/api';
-import mockedProducts from '../../__mocks__/mocked-products';
+import api from "../../services/api";
+import { FETCH_PRODUCTS, CREATE_PRODUCT } from "../../types";
+import mockedProducts from "../../__mocks__/mocked-products";
+import axios from "axios";
 
 export const fetchProducts = () => async (dispatch) => {
   // const res = await api.get("/products")
-  const res = mockedProducts
+  const res = mockedProducts;
 
   dispatch({
     type: FETCH_PRODUCTS,
     payload: res,
   });
 };
+

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const UserSigninContainer = styled.div`
+export const UserSigninContainer = styled.form`
   width: 100%;
   height: 80vh;
   display: flex;

@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   Card,
-  CardImage,
   CardBody,
   CardTitle,
   CardSubTitle,
@@ -10,22 +9,26 @@ import {
   CardFooter,
   Button,
   ContainerButtons } from './styles';
-import { AiFillHeart, AiFillShopping } from 'react-icons/ai';
-import headPhone from '../../assets/images/fone 1.png';
+import { AiFillHeart } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
+import formatCurrency from '../../utils/formatCurrency';
 
-const CardProduct = () => {
+const CardProduct = ({ product }) => {
   return (
     <Card>
-      <CardImage src={headPhone}></CardImage>
+      <Link to={`/product/${product._id}`}>
+        <img src={product.image} alt={product.name} />
+      </Link>
       <CardBody>
-        <CardTitle>HeadPhone <CardRating>14<AiFillHeart/></CardRating></CardTitle>
-        <CardSubTitle>Bluetooth 2.0</CardSubTitle>
+        <Link to={`/product/${product._id}`}>
+          <CardTitle>{product.name} <CardRating>{product.likes}<AiFillHeart/></CardRating></CardTitle>
+        </Link>
+        <CardSubTitle>{product.description}</CardSubTitle>
       </CardBody>
 
       <CardFooter>
-          <ProductPrice>R$ 400,00</ProductPrice>
+          <ProductPrice>{formatCurrency(product.price)}</ProductPrice>
           <ContainerButtons>
-            <Button><AiFillShopping/>+</Button>
             <Button><AiFillHeart/></Button>
           </ContainerButtons>
         </CardFooter>

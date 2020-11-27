@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
   width: 180px;
-  height: 180px;
+  height: 240px;
   padding: 8px;
   background: #E5E5E5;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
@@ -11,14 +11,18 @@ export const Card = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 40px 8px;
-`;
-
-export const CardImage = styled.img`
-  width: 70%;
-  position: relative;
-  top: -40px;
-
+  margin: 20px 8px;
+  a{
+    width: 100%;
+    align-self: center;
+    position: relative;
+    img {
+      width: 60%;
+      position: relative;
+      top: -40px;
+      left: 20%;
+    }
+  }
 `;
 
 export const CardBody = styled.div`
@@ -28,6 +32,10 @@ export const CardBody = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  a {
+    text-decoration: none;
+    color: #000000DD;
+  }
 `;
 
 export const CardTitle = styled.h4`

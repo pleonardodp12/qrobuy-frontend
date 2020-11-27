@@ -1,37 +1,74 @@
 import React from 'react';
-import ScrollContainer from "react-indiana-drag-scroll";
-import ProductInCart from '../../components/ProductInCart';
+import { connect } from 'react-redux';
+import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
 import ButtonConfirm from '../../components/ButtonConfirm';
-import CardProduct from "../../components/CardProduct";
-import { ContainerCart, ButtonContinue, ProductOrderInfo } from './styles';
+import formatCurrency from '../../utils/formatCurrency';
+import { BiSad } from 'react-icons/bi';
+import {
+  ContainerCart,
+  ProductOrderInfo,
+  ProductInCartCard,
+  ProductInfo,
+  QuantityProduct,
+  QuantityButton,
+  More,
+  Less,
+  EmptyCart
+} from './styles';
 
 
-
-const CartScreen = () => {
-  function renderCartProduct() {
-    let listProduct = [];
-    for (let i = 0; i < 1; i++) {
-      listProduct.push(<CardProduct />);
-    }
-    return listProduct;
-  }
-
+const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
   return (
+    <>
+    {console.log('***CART ITEMS', cartItems)}
+    {cartItems.cartItem !== [] ? (
     <ContainerCart>
-      <ProductInCart />
+      {cartItems.map(cartItem => (
+        <ProductInCartCard key={cartItem._id}>
+          {console.log('CARTITEM',cartItem)}
+          <img src={cartItem.image} alt="produto" />
+          <ProductInfo>
+            <h3>{cartItem.name}</h3>
+          </ProductInfo>
+          <QuantityProduct>
+            Quantidade: {cartItem.count}
+            <h4>{formatCurrency(cartItem.price)}</h4>
+          </QuantityProduct>
+          <QuantityButton>
+            <More onClick={() => addToCart(cartItem)}>+</More>
+            
+            <Less onClick={() => removeFromCart(cartItem)}>X</Less>
+          </QuantityButton>
+        </ProductInCartCard>
+      ))}
+      {cartItems.length === 0 ? (
+        <EmptyCart>Seu carrinho está vazio <BiSad/></EmptyCart>
+      ) : (
+        <>
+          <ProductOrderInfo>
+            Total: {" "}
+            <strong>{formatCurrency(
+              cartItems.reduce((a, c) => a + c.price * c.count, 0))}</strong>
+          </ProductOrderInfo>
+          <ButtonConfirm textButton="Finalizar"/>
+        </>
+      )}
+      
 
-      <ProductOrderInfo>
-        Total: 1200,00 R$;
-      </ProductOrderInfo>
-
-      <ButtonConfirm textButton="Finalizar"/>
-      <ButtonContinue> Continuar Comprando</ButtonContinue>
-
-      <ScrollContainer className="scroll-container" style={{ display: "flex" }}>
-        {renderCartProduct()}
-      </ScrollContainer>
     </ContainerCart>
+    ): (<div> carrinho vazio</div>)}
+    
+    </>
   )
 }
 
-export default CartScreen;
+const mapStateToProps = (state) => {
+  console.log('STATE.cart.items', state.cart.cartItems)
+  return { cartItems: state.cart.cartItems };
+};
+
+export default connect(mapStateToProps,{
+  addToCart,
+  removeFromCart,
+}
+)(CartScreen)

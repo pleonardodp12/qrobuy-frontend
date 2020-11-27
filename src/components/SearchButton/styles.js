@@ -6,6 +6,7 @@ export const WrapperInput = styled.div`
   background-color: transparent;
   padding: 12px;
   position: relative;
+  margin: 40px 0;
 `;
 
 export const InputData = styled.div`

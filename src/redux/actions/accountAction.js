@@ -6,6 +6,7 @@ export const signInUser = (credentials) => async (dispatch) => {
   if (response.status === 200) {
     dispatch({ type: SIGN_IN, payload: response.data });
   } else {
+    // TODO: add a better error messaging system
     window.alert(response.status);
   }
 };
@@ -15,6 +16,7 @@ export const signUpUser = (credentials) => async (dispatch) => {
   if (response.status === 201) {
     dispatch({ type: SIGN_UP, payload: response.data });
   } else {
+    // TODO: add a better error messaging system
     window.alert(response.status);
   }
 };

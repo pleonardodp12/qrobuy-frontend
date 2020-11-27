@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import ButtonConfirm from "../../components/ButtonConfirm";
 import { connect } from "react-redux";
-import { loginUser } from "../../redux/actions/signinAction";
-import api from "../../services/api";
-import axios from "axios";
+import { signInUser } from "../../redux/actions/signinAction";
 
 import { UserSigninContainer } from "./styles";
 
-const UserSignin = () => {
+const UserSignin = ({ signInUser }) => {
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -19,24 +17,13 @@ const UserSignin = () => {
     setLogin({ ...login, [name]: value });
   };
 
-  const submitLogin = async (e) => {
-    e.preventDefault();
-    const credentials = {
-      email: login.email,
-      password: login.password,
-    };
-    api.post("/signin", credentials).then(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
-
   return (
-    <UserSigninContainer onSubmit={submitLogin}>
+    <UserSigninContainer
+      onSubmit={(event) => {
+        event.preventDefault();
+        signInUser(login);
+      }}
+    >
       <InputForm labelName="Login" name="email" onChange={changeLogin} />
       <InputForm
         labelName="Senha"
@@ -55,5 +42,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  loginUser,
+  signInUser,
 })(UserSignin);

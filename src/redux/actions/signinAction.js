@@ -1,18 +1,11 @@
-import { SIGN_IN } from '../../types';
-import api from '../../services/api';
+import api from "../../services/api";
 
-export const loginUser = (data) => (dispatch) => {
-  // methodo post 
-  api.post("/login", {
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    method: 'POST',
-    body: JSON.stringify(data)
-  }).then(res => res.json()).then(data => {
-    dispatch({
-      type: SIGN_IN,
-      payload: data
-    });
-  });
+export const signInUser = (credentials) => async (dispatch) => {
+  console.log(credentials);
+  const response = await api.post("/signin", credentials);
+  if (response.status === 200) {
+    dispatch({ type: "SIGN_IN", payload: response.data });
+  } else {
+    window.alert(response.status);
+  }
 };

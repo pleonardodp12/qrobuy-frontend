@@ -12,3 +12,8 @@ export const createProduct = async (productData, accessToken, base64Image) => {
   await axios.put(awsPressignedUrl, base64Image);
   return response.data;
 };
+
+export const deleteProduct = async (productId, accessToken) => {
+  const response = await makeAdminApi(accessToken).post(`/products/${productId}`);
+  return response.data;
+};

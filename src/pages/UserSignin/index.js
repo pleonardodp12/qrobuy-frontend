@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import ButtonConfirm from "../../components/ButtonConfirm";
 import { connect } from "react-redux";
-import { signInUser } from "../../redux/actions/signinAction";
-
+import { signInUser } from "../../redux/actions/accountAction";
 import { UserSigninContainer } from "./styles";
 
 const UserSignin = ({ signInUser }) => {
@@ -17,13 +16,13 @@ const UserSignin = ({ signInUser }) => {
     setLogin({ ...login, [name]: value });
   };
 
+  const handleSignIn = (event) => {
+    event.preventDefault();
+    signInUser(login);
+  };
+
   return (
-    <UserSigninContainer
-      onSubmit={(event) => {
-        event.preventDefault();
-        signInUser(login);
-      }}
-    >
+    <UserSigninContainer onSubmit={handleSignIn}>
       <InputForm labelName="Login" name="email" onChange={changeLogin} />
       <InputForm
         labelName="Senha"

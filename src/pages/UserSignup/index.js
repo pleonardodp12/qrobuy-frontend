@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import ButtonConfirm from "../../components/ButtonConfirm";
 import { UserSignupContainer } from "./styles";
-import { signUpUser } from "../../redux/actions/signupAction";
+import { signUpUser } from "../../redux/actions/accountAction";
 import { connect } from "react-redux";
 
 const UserSignup = ({ signUpUser }) => {
@@ -16,13 +16,13 @@ const UserSignup = ({ signUpUser }) => {
     setUser({ ...user, [name]: value });
   };
 
+  const handleSignUp = (event) => {
+    event.preventDefault();
+    signUpUser(user);
+  };
+
   return (
-    <UserSignupContainer
-      onSubmit={(event) => {
-        event.preventDefault();
-        signUpUser(user);
-      }}
-    >
+    <UserSignupContainer onSubmit={handleSignUp}>
       <InputForm
         labelName="Email"
         name="email"

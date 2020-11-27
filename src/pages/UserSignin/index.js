@@ -21,9 +21,10 @@ const UserSignin = () => {
 
   const submitLogin = async e => {
     e.preventDefault();
-    const data = JSON.stringify(login);
-    const response = await api.get('/signin', data)
+    const response = await api.get('/signin', login)
     console.log(response)
+      
+
   }
 
   return (

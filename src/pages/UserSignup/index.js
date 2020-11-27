@@ -11,20 +11,37 @@ const UserSignup = () => {
     setCpf(cpfMask(e.target.value))
   }
 
+  const [login, setLogin] = useState({
+    name: '',
+    email: '',
+    cpf: '',
+    password: '',
+  })
+
+  const changeSignup = e => {
+    const { name, value } = e.target
+    setLogin({...login, [name]: value })
+    console.log(login)
+  }
+
+  const submitSignup = e => {
+    e.preventDefault();
+    console.log(login)
+  }
+
   return (
-    <UserSignupContainer>
-      <InputForm labelName="Nome"/>
-      <InputForm labelName="Email" type="email"/>
+    <UserSignupContainer onSubmit={submitSignup}>
+      <InputForm labelName="Nome" name="name" onChange={changeSignup}/>
+      <InputForm labelName="Email" name="email" type="email" onChange={changeSignup}/>
       <InputForm
         labelName="CPF"
         maxLength='14'
         value={cpf}
         onChange={handleChange}
+        name="cpf"
       />
-      <InputForm labelName="Senha" type="password"/>
-      <InputForm labelName="Digite a senha novamente" type="password"/>
-
-      <ButtonConfirm textButton="Cadastrar" />
+      <InputForm labelName="Senha" type="password" name="password" onChange={changeSignup}/>
+      <ButtonConfirm textButton="Cadastrar" type="submit"/>
     </UserSignupContainer>
   )
 }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
 import ButtonConfirm from '../../components/ButtonConfirm';
 import formatCurrency from '../../utils/formatCurrency';
+import { BiSad } from 'react-icons/bi';
 import {
   ContainerCart,
   ProductOrderInfo,
@@ -11,7 +12,8 @@ import {
   QuantityProduct,
   QuantityButton,
   More,
-  Less
+  Less,
+  EmptyCart
 } from './styles';
 
 
@@ -39,14 +41,20 @@ const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
           </QuantityButton>
         </ProductInCartCard>
       ))}
+      {cartItems.length === 0 ? (
+        <EmptyCart>Seu carrinho está vazio <BiSad/></EmptyCart>
+      ) : (
+        <>
+          <ProductOrderInfo>
+            Total: {" "}
+            <strong>{formatCurrency(
+              cartItems.reduce((a, c) => a + c.price * c.count, 0))}</strong>
+          </ProductOrderInfo>
+          <ButtonConfirm textButton="Finalizar"/>
+        </>
+      )}
+      
 
-      <ProductOrderInfo>
-        Total:
-        {formatCurrency(
-          cartItems.reduce((a, c) => a + c.price * c.count, 0))}
-      </ProductOrderInfo>
-
-      <ButtonConfirm textButton="Finalizar"/>
     </ContainerCart>
     ): (<div> carrinho vazio</div>)}
     

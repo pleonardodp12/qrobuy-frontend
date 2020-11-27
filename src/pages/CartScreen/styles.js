@@ -10,9 +10,10 @@ export const ContainerCart = styled.div`
 
 export const ProductOrderInfo = styled.div`
   margin: 24px 0;
-  color: #E5383B;
   font-size: 24px;
-  font-weight: bold;
+  strong {
+    color: #E5383B;
+  }
 `;
 
 export const ProductInCartCard = styled.div`
@@ -105,4 +106,19 @@ export const Less = styled.button`
   background: #fa1121;
   border-radius: 0 0px 4px 0;
   color: white;
+`;
+
+export const EmptyCart = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  color: #E5383B;
+  svg {
+    width: 80px;
+    height: 80px;
+  }
 `;

@@ -12,6 +12,7 @@ import ProductScreen from "./pages/ProductScreen";
 import HeaderNav from "./components/HeaderNav";
 import UserSignin from "./pages/UserSignin";
 import UserSignup from "./pages/UserSignup";
+import AdminProducts from './Admin/AdminProducts';
 import AdminOrders from "./Admin/AdminOrders";
 
 const Routes = () => {
@@ -28,6 +29,7 @@ const Routes = () => {
       <Route path="/user/sign-in" exact component={UserSignin} />
       <Route path="/user/sign-up" exact component={UserSignup} />
       <Route path="/admin/orders" exact component={AdminOrders} />
+      <Route path="/admin/products" exact component={AdminProducts} />
       <BottomNavigation />
     </BrowserRouter>
   );

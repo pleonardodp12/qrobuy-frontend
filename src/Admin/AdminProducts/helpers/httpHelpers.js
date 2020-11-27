@@ -1,13 +1,14 @@
 import axios from "axios";
-import api from "../../../services/api";
+import { makeAdminApi } from "../../../services/adminApi";
 
 export const createProduct = async (productData, accessToken, base64Image) => {
-  const response = await api.post("/products", productData, {
-    headers: {
-      "x-access-token": accessToken,
-      "Content-Type": "application/json",
-    },
-  });
+  const response = await makeAdminApi(accessToken).post(
+    "/products",
+    productData
+  );
+  // Retrieves aws pressigned url
   const awsPressignedUrl = response.data.pressignedUrl;
+  // Inserts the image into aws storage
   await axios.put(awsPressignedUrl, base64Image);
+  return response.data;
 };

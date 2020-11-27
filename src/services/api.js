@@ -6,7 +6,7 @@ const api = axios.create({
     Accept: "application/json",
     "Content-Type": "application/json",
   },
-  baseURL: "http://qrobuy-backend.herokuapp.com/api/v1",
-})
+  baseURL: "https://qrobuy-backend.herokuapp.com/api/v1",
+});
 
 export default api;

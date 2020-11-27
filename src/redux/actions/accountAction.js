@@ -9,6 +9,7 @@ export const signInUser = (credentials) => async (dispatch) => {
     // TODO: add a better error messaging system
     window.alert(response.status);
   }
+  localStorage.setItem("token", JSON.stringify(response.data.accessToken))
 };
 
 export const signUpUser = (credentials) => async (dispatch) => {

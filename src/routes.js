@@ -6,7 +6,7 @@ import HomeScreen from "./pages/HomeScreen";
 import CartScreen from "./pages/CartScreen";
 import FAQScreen from "./pages/FAQScreen";
 import User from "./pages/User";
-import CheckoutSignup from "./pages/CheckoutSignup";
+import CheckoutScreen from "./pages/CheckoutScreen";
 import BottomNavigation from "./components/BottomNavigation";
 import ProductScreen from "./pages/ProductScreen";
 import HeaderNav from "./components/HeaderNav";
@@ -21,7 +21,7 @@ const Routes = () => {
       <Route path="/" exact component={HomeScreen} />
       <Route path="/cart" component={CartScreen} />
       <Route path="/faq" component={FAQScreen} />
-      <Route path="/ckeckout-signup" component={CheckoutSignup} />
+      <Route path="/checkout" component={CheckoutScreen} />
       <Route path="/admin" exact component={LoginAdmin} />
       <Route path="/product/:id" component={ProductScreen} />
       <Route path="/user" exact component={User} />

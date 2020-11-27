@@ -15,6 +15,7 @@ import {
   Less,
   EmptyCart
 } from './styles';
+import { Link } from 'react-router-dom';
 
 
 const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
@@ -50,7 +51,9 @@ const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
             <strong>{formatCurrency(
               cartItems.reduce((a, c) => a + c.price * c.count, 0))}</strong>
           </ProductOrderInfo>
-          <ButtonConfirm textButton="Finalizar"/>
+          <Link to="/checkout">
+            <ButtonConfirm textButton="Finalizar"/>
+          </Link>
         </>
       )}
       

@@ -32,3 +32,17 @@ export const GridProducts = styled.div`
   list-style-type: none;
   padding-bottom: 80px;
 `;
+
+export const LoadingScreen = styled.div`
+  width: 100vw;
+  height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  position: absolute;
+  z-index: 9999999;
+  color: #E5383B;
+  background: white;
+`;

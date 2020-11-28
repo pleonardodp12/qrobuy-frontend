@@ -43,3 +43,19 @@ export const CircleButton = styled.div`
     color: #BA181B;
   }
 `;
+
+export const Notification = styled.div`
+  width: 24px;
+  height: 24px;
+  background: #BA181B;
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  font-weight:bold;
+`;

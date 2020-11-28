@@ -17,11 +17,11 @@ const CardProduct = ({ product }) => {
   return (
     <Card>
       <Link to={`/product/${product._id}`}>
-        <img src={product.image} alt={product.name} />
+        <img src={product.imageUrl} alt={product.name} />
       </Link>
       <CardBody>
         <Link to={`/product/${product._id}`}>
-          <CardTitle>{product.name} <CardRating>{product.likes}<AiFillHeart/></CardRating></CardTitle>
+          <CardTitle>{product.name} <CardRating>17<AiFillHeart/></CardRating></CardTitle>
         </Link>
         <CardSubTitle>{product.description}</CardSubTitle>
       </CardBody>

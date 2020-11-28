@@ -90,6 +90,7 @@ export const ButtonContainer = styled.div`
   div {
     display: flex;
     align-items: center;
+    pointer-events: none;
   }
   
   svg {

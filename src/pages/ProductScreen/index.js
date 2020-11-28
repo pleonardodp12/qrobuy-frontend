@@ -20,20 +20,20 @@ const ProductScreen = ({ addToCart, match }) => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const p = await api.get(`/product/${match.params.id}`);
-      setProduct(p);
+      const { data} = await api.get(`/product/${match.params.id}`);
+      setProduct(data);
+      console.log(data)
     };
     fetchProduct();
 
   }, [match]);
-  //const product = mockedProducts.find((p) => p._id === match.params.id)
  
   return (
     <>
     {!product ? (<div>Carregando</div>) : (
       <ProductWrapper>
         <ProductMain>
-        <CardImage src={product.image} alt={product.name}></CardImage>
+        <CardImage src={product.imageUrl} alt={product.name}></CardImage>
         <CardInfo>
           <CardTitle>{product.name}</CardTitle>
           <ProductPrice>Preço: {product.price}</ProductPrice>

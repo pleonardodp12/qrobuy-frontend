@@ -27,7 +27,7 @@ const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
       {cartItems.map(cartItem => (
         <ProductInCartCard key={cartItem._id}>
           {console.log('CARTITEM',cartItem)}
-          <img src={cartItem.image} alt="produto" />
+          <img src={cartItem.imageUrl} alt="produto" />
           <ProductInfo>
             <h3>{cartItem.name}</h3>
           </ProductInfo>

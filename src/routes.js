@@ -13,6 +13,7 @@ import HeaderNav from "./components/HeaderNav";
 import UserSignin from "./pages/UserSignin";
 import UserSignup from "./pages/UserSignup";
 import AdminOrders from "./Admin/AdminOrders";
+import UserHistory from "./pages/UserHistory";
 
 const Routes = () => {
   return (
@@ -22,10 +23,12 @@ const Routes = () => {
       <Route path="/cart" component={CartScreen} />
       <Route path="/faq" component={FAQScreen} />
       <Route path="/checkout" component={CheckoutScreen} />
-      <Route path="/admin" exact component={LoginAdmin} />
       <Route path="/product/:id" component={ProductScreen} />
       <Route path="/user" exact component={User} />
       <Route path="/user/sign-in" exact component={UserSignin} />
+      <Route path="/user/history" exact component={UserHistory} />
+
+      <Route path="/admin" exact component={LoginAdmin} />
       <Route path="/user/sign-up" exact component={UserSignup} />
       <Route path="/admin/orders" exact component={AdminOrders} />
       <BottomNavigation />

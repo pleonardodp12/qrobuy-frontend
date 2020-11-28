@@ -38,7 +38,7 @@ export const CircleButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.65);
   svg {
     color: #BA181B;
   }
@@ -58,4 +58,5 @@ export const Notification = styled.div`
   color: white;
   font-size: 16px;
   font-weight:bold;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.65);
 `;

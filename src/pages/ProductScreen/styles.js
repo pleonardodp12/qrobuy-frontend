@@ -19,6 +19,7 @@ export const ProductMain = styled.div`
 
 export const CardImage = styled.img`
   background-color: #E5E5E5;
+  width: 200px;
   padding: 20px;
   border-radius: 8px;
   position: relative;

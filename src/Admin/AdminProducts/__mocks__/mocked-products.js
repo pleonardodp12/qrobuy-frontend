@@ -3,7 +3,7 @@ export const mockedProducts = [
     _id: "1",
     name: "Alecrim",
     category: "valid_email@email.com",
-    image: "12345612312",
+    image: "../../../assets/images/fone1.png",
     cost: "134534253252",
     about: "",
     price: 28923,

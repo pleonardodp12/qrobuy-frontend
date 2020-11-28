@@ -18,14 +18,6 @@ export const Name = styled.p`
   font-weight: bold;
 `;
 
-export const Subtitle = styled.p`
-  font-size: 14px;
-`;
-
-export const OrderPrice = styled.span`
-  color: #378036;
-`;
-
 export const OrderListContainer = styled.div`
   width: 100%;
   display: flex;

@@ -15,7 +15,7 @@ import UserSignup from "./pages/UserSignup";
 import AdminProducts from './Admin/AdminProducts';
 import AdminOrders from "./Admin/AdminOrders";
 import CreateProduct from "./Admin/AdminProducts/components/product-add";
-import BottomNavbar from "./Admin/AdminProducts/components/bottomnavbar"
+import ProductDelete from "./Admin/AdminProducts/components/product-delete"
 
 const Routes = () => {
   return (
@@ -33,6 +33,7 @@ const Routes = () => {
       <Route path="/admin/orders" exact component={AdminOrders} />
       <Route path="/admin/products" exact component={AdminProducts} />
       <Route path='/admin/create-product' component={CreateProduct}/>
+      <Route path='/admin/delete-product' component={ProductDelete}/>
       <Switch>
         <Route path='/admin'/>
         <Route path='/admin/create-product'/>

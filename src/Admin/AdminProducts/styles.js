@@ -55,6 +55,7 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   align-content: center;
   width: 100%;
+  padding-top: 1em;
   paddingBottom: 10%;
 `;
 

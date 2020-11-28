@@ -1,9 +1,11 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import {
   ProductDetailsContainer,
   ProductLabel,
   ProductInput,
   TextWrapper,
+  Container,
 } from "../styles";
 
 const CreateProduct  = ({ product, setDetails }) => {
@@ -11,6 +13,7 @@ const CreateProduct  = ({ product, setDetails }) => {
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 
   return (
+    <Container>
     <ProductDetailsContainer>
       <TextWrapper>
 
@@ -35,8 +38,9 @@ const CreateProduct  = ({ product, setDetails }) => {
         <ProductLabel>Descrição:</ProductLabel>
         <ProductInput></ProductInput>
       </TextWrapper>
-      <button onClick={() => setDetails(false)}>close</button>
+      <Link to="/admin/products"><button>close</button></Link>
     </ProductDetailsContainer>
+    </Container>
   );
 };
 

@@ -1,4 +1,6 @@
 import React,  { useEffect, useState } from 'react';
+
+import BottomNavbar from "./components/bottomnavbar";
 import SearchButton from "../../components/SearchButton";
 import { Container, ListWrapper } from "./styles";
 
@@ -28,15 +30,17 @@ const AdminProducts = () => {
   return (
     <>
       <Container>
-          <SearchButton /> 
-          {details ? (
-          <ProductDetails product={product} setDetails={setDetails} />
-        ) :
-          <ListWrapper>
-            {renderProductList(mockedProducts, toggleDetails)} 
-          </ListWrapper>
+        <SearchButton /> 
+        {details ?
+          <ProductDetails product={product} setDetails={setDetails} /> :
+          <ListWrapper>{renderProductList(mockedProducts, toggleDetails)}</ListWrapper>
         }
       </Container>
+     
+     {details ? 
+      <BottomNavbar link="/" text="Salvar produto"/>  :
+      <BottomNavbar link="/admin/create-product" text="Adicionar produto"/>  
+    }
     </>
   );
 };

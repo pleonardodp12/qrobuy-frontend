@@ -6,7 +6,7 @@ import {
   TextWrapper,
 } from "../styles";
 
-export const ProductDetails = ({ product, setDetails }) => {
+const CreateProduct  = ({ product, setDetails }) => {
 
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 
@@ -15,27 +15,29 @@ export const ProductDetails = ({ product, setDetails }) => {
       <TextWrapper>
 
         <ProductLabel>Nome:</ProductLabel>
-        <ProductInput value={product.name}></ProductInput>
+        <ProductInput></ProductInput>
         
         <ProductLabel>Categoria:</ProductLabel>
-        <ProductInput value={product.category}></ProductInput>
+        <ProductInput></ProductInput>
         
         <ProductLabel>Imagem:</ProductLabel>
-        <ProductInput value={product.image}></ProductInput>
+        <ProductInput></ProductInput>
         
         <ProductLabel>Custo:</ProductLabel>
-        <ProductInput value={product.cost}></ProductInput>
+        <ProductInput></ProductInput>
 
         <ProductLabel>Preço:</ProductLabel>
-        <ProductInput value={product.price}></ProductInput>
+        <ProductInput></ProductInput>
 
         <ProductLabel>Quantidade em estoque:</ProductLabel>
-        <ProductInput value={product.unit}></ProductInput>
+        <ProductInput></ProductInput>
         
         <ProductLabel>Descrição:</ProductLabel>
-        <ProductInput value={product.about}></ProductInput>
+        <ProductInput></ProductInput>
       </TextWrapper>
       <button onClick={() => setDetails(false)}>close</button>
     </ProductDetailsContainer>
   );
 };
+
+export default CreateProduct;

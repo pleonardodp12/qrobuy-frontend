@@ -88,3 +88,28 @@ export const ProductInput = styled.input`
 export const ProductLabel = styled.label`
   color: #636363;
 `
+
+export const BottomBar = styled.div`
+  width: 100%;
+  height: 50px;
+
+  background-color: #67BB65;
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
+  color: white;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+  svg {
+    width: 32px;
+    height: 32px;
+    color: white;
+    cursor: pointer;
+    &:hover{
+    opacity: .8;
+  }
+  }
+`;

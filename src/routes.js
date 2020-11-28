@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import React from "react";
 import LoginAdmin from "./Admin/LoginAdmin";
@@ -14,6 +14,8 @@ import UserSignin from "./pages/UserSignin";
 import UserSignup from "./pages/UserSignup";
 import AdminProducts from './Admin/AdminProducts';
 import AdminOrders from "./Admin/AdminOrders";
+import CreateProduct from "./Admin/AdminProducts/components/product-add";
+import BottomNavbar from "./Admin/AdminProducts/components/bottomnavbar"
 
 const Routes = () => {
   return (
@@ -30,7 +32,12 @@ const Routes = () => {
       <Route path="/user/sign-up" exact component={UserSignup} />
       <Route path="/admin/orders" exact component={AdminOrders} />
       <Route path="/admin/products" exact component={AdminProducts} />
-      <BottomNavigation />
+      <Route path='/admin/create-product' component={CreateProduct}/>
+      <Switch>
+        <Route path='/admin'/>
+        <Route path='/admin/create-product'/>
+        <Route path='/' component={BottomNavigation} />
+      </Switch>
     </BrowserRouter>
   );
 };

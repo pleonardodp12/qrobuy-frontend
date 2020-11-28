@@ -144,3 +144,23 @@ export const EmailForm = styled.form`
     color: white;
   }
 `;
+
+export const ConfirmEmailSuccess = styled.div`
+  width: 100vw;
+  height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 30px;
+  position: absolute;
+  top: 0;
+  z-index: 9999999;
+  color: #E5383B;
+  background: white;
+  svg {
+    width: 80px;
+    height: 80px;
+  }
+  z-index: 100000;
+`;

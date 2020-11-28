@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 10%;
+  margin-bottom: 70px;
+  padding: 0px 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,31 +11,43 @@ export const Container = styled.div`
 `;
 
 export const ListWrapper = styled.div`
-  padding-top: 10%;
   width: 100%;
+  padding: 0px .5em;
 `;
 
 export const Name = styled.p`
   font-weight: bold;
 `;
 
-export const OrderListContainer = styled.div`
+export const ProductListContainer = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 2%;
 `;
 
-export const OrderItemContainer = styled.div`
+export const ProductItemContainer = styled.div`
   width: 100%;
+  padding: .2em;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: space-between;
 `;
 
-export const OrderDetailsContainer = styled.div`
+export const ProductBtns = styled.div`
+  svg {
+    height: 100%;
+    margin: .2em;
+
+    &:hover{
+      cursor: pointer;
+      fill: red;
+    }
+  }
+`
+
+export const ProductDetailsContainer = styled.div`
   width: 100%;
-  padding: 10% 5% 5% 5%;
 `;
 
 export const TextWrapper = styled.div`
@@ -45,8 +58,33 @@ export const TextWrapper = styled.div`
   paddingBottom: 10%;
 `;
 
-export const OrderDetailsText = styled.p`
-  padding: 5%;
+export const ProductDetailsText = styled.p`
   font-size: 14px;
   width: 100%;
 `;
+
+export const ProductHead = styled.div`
+  display: flex;
+  align-items: center;
+
+  img {
+    margin-right: 10px;
+    background-color: #E5E5E5;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+  }
+`
+
+export const ProductInput = styled.input`
+  border: none;
+  border-bottom: 2px solid #A4161A;
+  background: transparent;
+  margin-bottom: 1em;
+  padding: .5em;
+  padding-bottom: .2em;
+`
+
+export const ProductLabel = styled.label`
+  color: #636363;
+`

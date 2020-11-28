@@ -3,15 +3,15 @@ import SearchButton from "../../components/SearchButton";
 import { Container, ListWrapper } from "./styles";
 
 import { mockedProducts } from "./__mocks__/mocked-products"; // mocked values
-import { OrderDetails } from "./components/order-details";
-import { renderOrdersList } from "./components/order-list";
+import { ProductDetails } from "./components/product-details";
+import { renderProductList } from "./components/product-list";
 
 const AdminProducts = () => {
   // const [orders, setOrders] = useState([]);
   const [details, setDetails] = useState(false);
-  const [order, setOrder] = useState({});
+  const [product, setProduct] = useState({});
 
-  const getOrders = async () => {
+  const getProduct = async () => {
     // const ordersList = await qrobuyServer.get("/orders");
     // setOrders(ordersList.body);
   };
@@ -20,19 +20,22 @@ const AdminProducts = () => {
     // getOrders();
   }, []);
 
-  const toggleDetails = (order) => {
+  const toggleDetails = (product) => {
     setDetails(!details);
-    setOrder(order);
+    setProduct(product);
   };
 
   return (
     <>
       <Container>
           <SearchButton /> 
+          {details ? (
+          <ProductDetails product={product} setDetails={setDetails} />
+        ) :
           <ListWrapper>
-            {renderOrdersList(mockedProducts, toggleDetails)} 
+            {renderProductList(mockedProducts, toggleDetails)} 
           </ListWrapper>
-          {/*aqui entra o botão de adicionar produto */}
+        }
       </Container>
     </>
   );

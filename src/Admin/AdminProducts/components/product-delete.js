@@ -1,17 +1,23 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { Name, ProductHead, ProductBtns, ProductItemContainer } from "../styles";
+import { ProductDeletePage, Name, ProductDeleteHead, ProductDeleteBtns} from "../styles";
 
 const ProductDelete = () => {
     return (
-        <>
-            <ProductHead>
+        <ProductDeletePage>
+
+            <ProductDeleteHead>
+                <img src="../../../assets/fone1.png"></img>
+                Você está deletando o produto:
                 <Name></Name>
-            </ProductHead>
-    
-            <Link to="/admin/products">a</Link>
-            <Link to="/admin/products">b</Link>
-        </>
+            </ProductDeleteHead>
+
+            <ProductDeleteBtns>
+                <button><Link to="/admin/products">Confirmar</Link></button>
+                <button><Link to="/admin/products">Cancelar</Link></button>
+            </ProductDeleteBtns>
+
+        </ProductDeletePage>
     )
 }
 

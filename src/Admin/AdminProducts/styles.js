@@ -10,6 +10,16 @@ export const Container = styled.div`
   align-items: center;
 `;
 
+export const ProductDeletePage = styled.div`
+  width: 100%;
+  height: 80vh;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const ListWrapper = styled.div`
   width: 100%;
   padding: 0px .5em;
@@ -114,3 +124,51 @@ export const BottomBar = styled.div`
   }
   }
 `;
+
+export const ProductDeleteBtns = styled.div`
+  display: flex;  
+  margin: 2em;
+
+  button {
+    width: 120px;
+    margin: 10px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color:#BA181B;
+    transition: 100ms;
+
+    &:hover{
+      cursor: pointer;
+      opacity: 0.7;
+    }
+  }
+
+  button:first-child {
+    background-color: #67BB65;
+  }
+
+  a {
+    text-decoration: none;
+    color: #e5e5e5;
+  }
+
+`
+
+export const ProductDeleteHead = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  p { text-aling: center; }
+
+  img {
+    margin: 2em;
+    width: 70%;
+    height: auto;
+    background-color: #E5E5E5;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+  }
+`

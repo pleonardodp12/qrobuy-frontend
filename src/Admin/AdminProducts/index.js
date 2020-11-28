@@ -33,12 +33,12 @@ const AdminProducts = () => {
       <Container>
         <SearchButton /> 
         {details ?
-          <ProductDetails product={product} setDetails={setDetails} /> : 
+          <ProductDetails product={product} setDetails={setDetails} /> :  
           <ListWrapper>{renderProductList(mockedProducts, toggleDetails)}</ListWrapper>
         }
       </Container>
      
-  ' '     {details ? 
+      {details ? 
       <BottomNavbar link="/" text="Salvar produto"/>  :
       <BottomNavbar link="/admin/create-product" text="Adicionar produto"/>  
     }

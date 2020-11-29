@@ -7,6 +7,7 @@ import {
   TextWrapper,
   Container,
 } from "../styles";
+import BottomNavbar from './bottomnavbar';
 
 const CreateProduct  = ({ product, setDetails }) => {
 
@@ -40,6 +41,7 @@ const CreateProduct  = ({ product, setDetails }) => {
       </TextWrapper>
       <Link to="/admin/products"><button>close</button></Link>
     </ProductDetailsContainer>
+    <BottomNavbar link="/" text="Salvar produto"/> 
     </Container>
   );
 };

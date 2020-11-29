@@ -25,7 +25,7 @@ export const deleteProduct = (product) => //async
         payload: 'oi vc entrou'
       });
 
-//  await api.delete("/admin/delete-product", {
+//  await api.delete("/product/:id", {
 //    headers: {
       
 //    },
@@ -50,11 +50,11 @@ export const editProduct = (product) => //async
         payload: 'oi vc entrou'
       });
 
-//  await api.post("/admin/products", {
+//  await api.patch("/product/:id", {
 //    headers: {
       
 //    },
-//    method: 'POST',
+//    method: 'PATCH',
 //    body: JSON.stringify(product)
 //  })
 //    .then(res => res.json())
@@ -65,3 +65,22 @@ export const editProduct = (product) => //async
 //      });
 //    });
 }
+
+export const createProduct = (product) => (dispatch) => {
+  // methodo post 
+  //await
+ // api.post("/product/:id", {
+ //   headers: {
+ //
+ //   },
+ //   method: 'POST',
+ //   body: JSON.stringify(product)
+ // })
+ //   .then(res => res.json())
+ //   .then(data => {
+ //     dispatch({
+ //       type: CREATE_PRODUCT,
+ //       payload: data
+ //     });
+ //   });
+};

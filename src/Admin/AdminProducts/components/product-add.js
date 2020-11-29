@@ -7,8 +7,11 @@ import {
   TextWrapper,
   Container,
 } from "../styles";
+import BottomNavbar from './bottomnavbar';
+import { createProduct } from '../../../redux/actions/productActions';
+import { connect } from 'react-redux';
 
-const CreateProduct  = ({ product, setDetails }) => {
+const CreateProduct  = ({ createProduct, product, setDetails }) => {
 
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 
@@ -39,9 +42,10 @@ const CreateProduct  = ({ product, setDetails }) => {
         <ProductInput></ProductInput>
       </TextWrapper>
       <Link to="/admin/products"><button>close</button></Link>
+     <BottomNavbar onClick={createProduct} link="/" text="Adicionar produto"/> 
     </ProductDetailsContainer>
     </Container>
   );
 };
 
-export default CreateProduct;
+export default connect(null,{createProduct})(CreateProduct);;

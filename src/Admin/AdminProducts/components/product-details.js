@@ -5,9 +5,16 @@ import {
   ProductInput,
   TextWrapper,
 } from "../styles";
+import { editProduct } from '../../../redux/actions/productActions';
+import { connect } from 'react-redux';
+import BottomNavbar from "./bottomnavbar";
 
+<<<<<<< HEAD
 export const ProductDetails = ({ product, setDetails }) => {
   const [productEdit, setProductEdit] = useState({...product});
+=======
+export const ProductDetails = ({editProduct, product, setDetails }) => {
+>>>>>>> f84d40f3a88c8a4583205d4de22f2948fb011618
 
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 
@@ -41,6 +48,9 @@ export const ProductDetails = ({ product, setDetails }) => {
         <ProductInput value={productEdit.about}></ProductInput>
       </TextWrapper>
       <button onClick={() => setDetails(false)}>close</button>
+      <BottomNavbar onClick={editProduct} link="/" text="Salvar produto"/> 
     </ProductDetailsContainer>
   );
 };
+
+export default connect(null,{editProduct})(ProductDetails);

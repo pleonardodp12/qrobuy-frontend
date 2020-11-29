@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { ProductDeletePage, Name, ProductDeleteHead, ProductDeleteBtns} from "../styles";
+import { deleteProduct } from '../../../redux/actions/productActions';
+import { connect } from 'react-redux';
 
-const ProductDelete = () => {
+const ProductDelete = ({deleteProduct}) => {
     return (
         <ProductDeletePage>
 
@@ -13,7 +15,7 @@ const ProductDelete = () => {
             </ProductDeleteHead>
 
             <ProductDeleteBtns>
-                <button><Link to="/admin/products">Confirmar</Link></button>
+                <button onClick={deleteProduct}><Link to="/admin/products">Confirmar</Link></button>
                 <button><Link to="/admin/products">Cancelar</Link></button>
             </ProductDeleteBtns>
 
@@ -21,4 +23,4 @@ const ProductDelete = () => {
     )
 }
 
-export default ProductDelete;
+export default connect(null,{deleteProduct})(ProductDelete);

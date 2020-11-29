@@ -6,7 +6,6 @@ import { Container, ListWrapper } from "./styles";
 
 import { mockedProducts } from "./__mocks__/mocked-products"; // mocked values
 import { ProductDetails } from "./components/product-details";
-import { ProductDelete } from './components/product-delete'
 import { renderProductList } from "./components/product-list";
 
 const AdminProducts = () => {
@@ -40,7 +39,7 @@ const AdminProducts = () => {
      
       {details ? 
       <BottomNavbar link="/" text="Salvar produto"/>  :
-      <BottomNavbar link="/admin/create-product" text="Adicionar produto"/>  
+        ''
     }
     </>
   );

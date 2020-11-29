@@ -2,40 +2,26 @@ import styled from "styled-components";
 
 export const WrapperInput = styled.div`
   height: 50px;
-  width: 250px;
+  width: 300px;
   background-color: transparent;
   padding: 12px;
   position: relative;
-  margin-top: 20px;
-  margin-bottom: 40px;
 `;
 
 export const InputData = styled.div`
-  input {
+  select {      
     height: 50px;
     width: 100%;
     border: 1px solid #ba181b;
     border-radius: 12px;
     font-size: 16px;
-    background-color: transparent;
-    color: grey;
-    color: #000000;
+    background-color: #FFF;
+    color: #BA181B;
     font-weight: bold;
-    padding-right: 35px;
-    padding-left: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
     padding-top: 6%;
     padding-bottom: 6%;
-    position: relative;
-  }
-
-  svg {
-    position: absolute;
-    right: 12%;
-    top: 43%;
-    font-size: 1.7rem;
-  }
-
-  svg path {
-    fill: #ba181b;
+    position: relative;    
   }
 `;

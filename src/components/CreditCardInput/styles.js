@@ -2,40 +2,42 @@ import styled from "styled-components";
 
 export const WrapperInput = styled.div`
   height: 50px;
-  width: 250px;
+  width: 300px;
   background-color: transparent;
   padding: 12px;
   position: relative;
-  margin-top: 20px;
-  margin-bottom: 40px;
 `;
 
 export const InputData = styled.div`
-  input {
+  input {      
     height: 50px;
     width: 100%;
     border: 1px solid #ba181b;
     border-radius: 12px;
     font-size: 16px;
     background-color: transparent;
-    color: grey;
     color: #000000;
     font-weight: bold;
-    padding-right: 35px;
-    padding-left: 20px;
+    padding-right: 10px;
+    padding-left: 25%;
     padding-top: 6%;
     padding-bottom: 6%;
     position: relative;
   }
 
+  input::placeholder {
+    color: #BA181B;
+  }
+
   svg {
     position: absolute;
-    right: 12%;
-    top: 43%;
-    font-size: 1.7rem;
+    left: 9%;
+    top: 67%;
+    font-size: 0.9rem;
+    width: 40px;
   }
 
   svg path {
-    fill: #ba181b;
+    fill: #000;
   }
 `;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BottomNavigation from "../../components/BottomNavigation";
 import SearchButton from "../../components/SearchButton";
 import { Container, ListWrapper } from "./styles";
 
@@ -39,7 +38,6 @@ const AdminOrders = () => {
             </ListWrapper>
           </>
         )}
-        <BottomNavigation />
       </Container>
     </>
   );

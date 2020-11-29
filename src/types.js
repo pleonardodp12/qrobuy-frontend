@@ -6,5 +6,7 @@ export const CREATE_ORDER = "CREATE_ORDER";
 export const CLEAR_ORDER = "CLEAR_ORDER";
 export const SIGN_IN = "SIGN_IN";
 export const SIGN_UP = "SIGN_UP";
+export const CREATE_PRODUCT = "CREATE_PRODUCT";
+export const DELETE_PRODUCT = "DELETE_PRODUCT";
 export const LOGOUT = "LOGOUT";
 export const CREATE_PRODUCT = "CREATE_PRODUCT";

@@ -6,7 +6,7 @@ import HomeScreen from "./pages/HomeScreen";
 import CartScreen from "./pages/CartScreen";
 import FAQScreen from "./pages/FAQScreen";
 import User from "./pages/User";
-import CheckoutSignup from "./pages/CheckoutSignup";
+import CheckoutScreen from "./pages/CheckoutScreen";
 import BottomNavigation from "./components/BottomNavigation";
 import ProductScreen from "./pages/ProductScreen";
 import HeaderNav from "./components/HeaderNav";
@@ -16,6 +16,7 @@ import AdminProducts from './Admin/AdminProducts';
 import AdminOrders from "./Admin/AdminOrders";
 import CreateProduct from "./Admin/AdminProducts/components/product-add";
 import ProductDelete from "./Admin/AdminProducts/components/product-delete"
+import UserHistory from "./pages/UserHistory";
 
 const Routes = () => {
   return (
@@ -24,11 +25,13 @@ const Routes = () => {
       <Route path="/" exact component={HomeScreen} />
       <Route path="/cart" component={CartScreen} />
       <Route path="/faq" component={FAQScreen} />
-      <Route path="/ckeckout-signup" component={CheckoutSignup} />
-      <Route path="/admin" exact component={LoginAdmin} />
+      <Route path="/checkout" component={CheckoutScreen} />
       <Route path="/product/:id" component={ProductScreen} />
       <Route path="/user" exact component={User} />
       <Route path="/user/sign-in" exact component={UserSignin} />
+      <Route path="/user/history" exact component={UserHistory} />
+
+      <Route path="/admin" exact component={LoginAdmin} />
       <Route path="/user/sign-up" exact component={UserSignup} />
       <Route path="/admin/orders" exact component={AdminOrders} />
       <Route path="/admin/products" exact component={AdminProducts} />

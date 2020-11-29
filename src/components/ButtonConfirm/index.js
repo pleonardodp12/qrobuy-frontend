@@ -2,10 +2,10 @@ import React from 'react';
 
 import { ButtonComponent } from './styles';
 
-const ButtonConfirm = ({ textButton, ...rest }) => {
+const ButtonConfirm = ({ textButton, iconButton, ...rest }) => {
   return (
     <ButtonComponent {...rest}>
-      {textButton}
+      {textButton} {iconButton}
     </ButtonComponent>
   )
 }

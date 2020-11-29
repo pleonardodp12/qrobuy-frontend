@@ -4,13 +4,16 @@ import mockedProducts from "../../__mocks__/mocked-products";
 import axios from "axios";
 
 export const fetchProducts = () => async (dispatch) => {
-  // const res = await api.get("/products")
-  const res = mockedProducts;
-
-  dispatch({
-    type: FETCH_PRODUCTS,
-    payload: res,
-  });
+  const response = await api.get("/products")
+  if (response.status === 200) {
+    dispatch({
+      type: FETCH_PRODUCTS,
+      payload: response.data,
+    });
+  } else {
+    // TODO: add a better error messaging system
+    window.alert(response.status);
+  }
 };
 
 export const deleteProduct = (product) => //async

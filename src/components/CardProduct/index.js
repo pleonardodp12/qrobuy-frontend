@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Card,
   CardBody,
@@ -8,12 +8,14 @@ import {
   ProductPrice,
   CardFooter,
   Button,
-  ContainerButtons } from './styles';
-import { AiFillHeart } from 'react-icons/ai';
-import { Link } from 'react-router-dom';
-import formatCurrency from '../../utils/formatCurrency';
+  ContainerButtons,
+} from "./styles";
+import { AiFillHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import formatCurrency from "../../utils/formatCurrency";
 
 const CardProduct = ({ product }) => {
+  console.log(product)
   return (
     <Card>
       <Link to={`/product/${product._id}`}>

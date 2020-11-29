@@ -12,6 +12,15 @@ export const ButtonComponent = styled.button`
   outline: 0;
   border: 1px solid #BA181B;
   transition: .3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    width: 20px;
+    height: 20px;
+    color: white;
+    margin: 4px;
+  }
 
   &:hover {
     background: #AA181B;

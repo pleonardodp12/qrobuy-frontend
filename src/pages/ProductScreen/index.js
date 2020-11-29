@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from 'react-redux';
+import api from '../../services/api';
 import { AiFillHeart, AiFillShopping } from 'react-icons/ai';
 import { addToCart } from '../../redux/actions/cartActions';
-import mockedProducts from '../../__mocks__/mocked-products';
 import {
   ProductWrapper,
   CardImage,
@@ -16,35 +16,32 @@ import {
 } from './styles';
 
 const ProductScreen = ({ addToCart, match }) => {
-  // const [product, setProduct] = useState({});
+  const [product, setProduct] = useState({});
 
-  //HOOK PARA PUXAR PRODUTOS
-  /* useEffect(() => {
+  useEffect(() => {
     const fetchProduct = async () => {
-      const p = await api.get(`/api/products/${match.params.id}`);
-      setProduct(p);
+      const { data} = await api.get(`/product/${match.params.id}`);
+      setProduct(data);
+      console.log(data)
     };
-
     fetchProduct();
 
   }, [match]);
-  */
-  const product = mockedProducts.find((p) => p._id === match.params.id)
  
   return (
     <>
     {!product ? (<div>Carregando</div>) : (
       <ProductWrapper>
         <ProductMain>
-        <CardImage src={product.image} alt={product.name}></CardImage>
+        <CardImage src={product.imageUrl} alt={product.name}></CardImage>
         <CardInfo>
           <CardTitle>{product.name}</CardTitle>
           <ProductPrice>Preço: {product.price}</ProductPrice>
         </CardInfo>
         </ProductMain>
-        <LikedBy> <AiFillHeart />{product.likes} pessoas gostaram</LikedBy>
+        <LikedBy> <AiFillHeart />17 pessoas gostaram</LikedBy>
         <ProductDescription>
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+          {product.description}
         </ProductDescription>
 
         <ButtonContainer onClick={() => {addToCart(product)}}>

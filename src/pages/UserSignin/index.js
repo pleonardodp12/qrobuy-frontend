@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import ButtonConfirm from "../../components/ButtonConfirm";
-import { connect } from "react-redux";
-import { signInUser } from "../../redux/actions/accountAction";
+import { connect, useSelector } from "react-redux";
+import { signInUser, logout } from "../../redux/actions/accountAction";
 import { UserSigninContainer } from "./styles";
+import { Link } from "react-router-dom";
+import { FiLogOut } from 'react-icons/fi';
+import { BsClockHistory } from 'react-icons/bs';
 
-const UserSignin = ({ signInUser }) => {
+const UserSignin = ({ signInUser, logout }) => {
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -20,8 +23,11 @@ const UserSignin = ({ signInUser }) => {
     event.preventDefault();
     signInUser(login);
   };
+  const { isAuthenticated } = useSelector(state => state.account)
 
   return (
+    <>
+    { isAuthenticated === null ? (
     <UserSigninContainer onSubmit={handleSignIn}>
       <InputForm labelName="Login" name="email" onChange={changeLogin} />
       <InputForm
@@ -31,15 +37,22 @@ const UserSignin = ({ signInUser }) => {
         onChange={changeLogin}
       />
       <ButtonConfirm textButton="Entrar" type="submit" />
-    </UserSigninContainer>
+    </UserSigninContainer>) : (
+      <UserSigninContainer>
+        <Link to="/user/history"><ButtonConfirm textButton="Histórico de compra" iconButton={<BsClockHistory />}/></Link>
+        <ButtonConfirm textButton="Logout" type="button"iconButton={<FiLogOut />} onClick={logout}/>
+      </UserSigninContainer>
+    )}
+  </>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log("STATE.account", state);
-  return { account: state };
+  console.log(state.account)
+  return { account: state.account };
 };
 
 export default connect(mapStateToProps, {
   signInUser,
+  logout,
 })(UserSignin);

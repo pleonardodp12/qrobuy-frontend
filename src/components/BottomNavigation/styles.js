@@ -38,8 +38,25 @@ export const CircleButton = styled.div`
   justify-content: center;
   align-items: center;
 
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.65);
   svg {
     color: #BA181B;
   }
+`;
+
+export const Notification = styled.div`
+  width: 24px;
+  height: 24px;
+  background: #BA181B;
+  border-radius: 50%;
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+  font-weight:bold;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.65);
 `;

@@ -11,6 +11,9 @@ export default createGlobalStyle`
     background: #f5f5f5;
     padding-top: 60px;
   }
+  a{
+    text-decoration: none;
+  }
 
   button,
   input {

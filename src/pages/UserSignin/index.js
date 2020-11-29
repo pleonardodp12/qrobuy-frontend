@@ -6,7 +6,7 @@ import { signInUser, logout } from "../../redux/actions/accountAction";
 import { UserSigninContainer } from "./styles";
 import { Link } from "react-router-dom";
 import { FiLogOut } from 'react-icons/fi';
-import { BsClockHistory } from 'react-icons/bs';
+import { GiCardExchange } from 'react-icons/gi';
 
 const UserSignin = ({ signInUser, logout }) => {
   const [login, setLogin] = useState({
@@ -39,7 +39,7 @@ const UserSignin = ({ signInUser, logout }) => {
       <ButtonConfirm textButton="Entrar" type="submit" />
     </UserSigninContainer>) : (
       <UserSigninContainer>
-        <Link to="/user/history"><ButtonConfirm textButton="Histórico de compra" iconButton={<BsClockHistory />}/></Link>
+        <Link to="/user/devolution"><ButtonConfirm textButton="Devoluções" iconButton={<GiCardExchange />}/></Link>
         <ButtonConfirm textButton="Logout" type="button"iconButton={<FiLogOut />} onClick={logout}/>
       </UserSigninContainer>
     )}

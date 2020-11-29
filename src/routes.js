@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import React from "react";
 import LoginAdmin from "./Admin/LoginAdmin";
@@ -12,7 +12,10 @@ import ProductScreen from "./pages/ProductScreen";
 import HeaderNav from "./components/HeaderNav";
 import UserSignin from "./pages/UserSignin";
 import UserSignup from "./pages/UserSignup";
+import AdminProducts from './Admin/AdminProducts';
 import AdminOrders from "./Admin/AdminOrders";
+import CreateProduct from "./Admin/AdminProducts/components/product-add";
+import ProductDelete from "./Admin/AdminProducts/components/product-delete"
 import UserHistory from "./pages/UserHistory";
 
 const Routes = () => {
@@ -31,7 +34,14 @@ const Routes = () => {
       <Route path="/admin" exact component={LoginAdmin} />
       <Route path="/user/sign-up" exact component={UserSignup} />
       <Route path="/admin/orders" exact component={AdminOrders} />
-      <BottomNavigation />
+      <Route path="/admin/products" exact component={AdminProducts} />
+      <Route path='/admin/create-product' component={CreateProduct}/>
+      <Route path='/admin/delete-product' component={ProductDelete}/>
+      <Switch>
+        <Route path='/admin'/>
+        <Route path='/admin/create-product'/>
+        <Route path='/' component={BottomNavigation} />
+      </Switch>
     </BrowserRouter>
   );
 };

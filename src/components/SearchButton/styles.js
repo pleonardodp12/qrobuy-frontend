@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 export const WrapperInput = styled.div`
   height: 50px;
-  width: 300px;
+  width: 250px;
   background-color: transparent;
   padding: 12px;
   position: relative;
-  margin: 40px 0;
+  margin-top: 20px;
+  margin-bottom: 40px;
 `;
 
 export const InputData = styled.div`

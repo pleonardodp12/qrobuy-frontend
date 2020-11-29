@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useSelector} from 'react-redux';
 import axios from "axios";
 import InputCreditCard from "../../components/InputCreditCard";
 import { FaRegCreditCard } from "react-icons/fa";
@@ -20,6 +21,8 @@ const CheckoutScreen = () => {
     setInfo({ ...info, [name]: value });
   };
 
+  const cartItems = useSelector(state => state.cart.cartItems);
+
   const handleSubmitPayment = (event) => {
     event.preventDefault();
 
@@ -28,12 +31,11 @@ const CheckoutScreen = () => {
         email: "teste@email.com.br",
         cpf: "10683283049",
         delivered: false,
-        price: 1000,
-        date: "27/11/2020",
-        cardItems: [{ productName: "Poste", quantity: 1 }],
+        price: cartItems.reduce((a, c) => a + c.price * c.count, 0),
+        cartItems: cartItems,
       },
       paymentData: {
-        orderPrice: 1000,
+        orderPrice: cartItems.reduce((a, c) => a + c.price * c.count, 0),
         orderReference: Math.floor(Math.random() * 10001),
         cardNumber: "5448280000000007",
         cvv: "235",
@@ -48,6 +50,7 @@ const CheckoutScreen = () => {
       url: "https://qrobuy-backend.herokuapp.com/api/v1/orders",
       headers: {
         "Content-Type": "application/json",
+        "Authorization": "Basic eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYzBlYzY4YThmM2I3MDAzNDY2MDAzYyIsImlhdCI6MTYwNjUxNzI0NH0.CxRMfopXgwQ0EzQPkYxxfNVps69CEg_XmK9LvF1_aSI",
       },
       data: data,
     };
@@ -63,6 +66,7 @@ const CheckoutScreen = () => {
 
   return (
     <CheckoutContainer onSubmit={handleSubmitPayment}>
+      {/* {console.log(cartItems)} */}
       <InputCreditCard
         labelName="Cpf:"
         imgInput={<RiFolderUserFill />}

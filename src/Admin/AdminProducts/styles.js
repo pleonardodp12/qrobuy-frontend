@@ -46,12 +46,15 @@ export const ProductItemContainer = styled.div`
 
 export const ProductBtns = styled.div`
   svg {
-    height: 100%;
+    width: 20px;
+    height: 20px;
     margin: .2em;
+    color: #BA181B;
+    cursor: pointer;
+    transition: .2s;
 
     &:hover{
-      cursor: pointer;
-      fill: red;
+      color: green;
     }
   }
 `
@@ -66,7 +69,7 @@ export const TextWrapper = styled.div`
   align-content: center;
   width: 100%;
   padding-top: 1em;
-  paddingBottom: 10%;
+  padding-Bottom: 10%;
 `;
 
 export const ProductDetailsText = styled.p`
@@ -160,7 +163,7 @@ export const ProductDeleteHead = styled.div`
   flex-direction: column;
   align-items: center;
   
-  p { text-aling: center; }
+  p { text-align: center; }
 
   img {
     margin: 2em;

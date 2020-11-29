@@ -16,7 +16,7 @@ import AdminProducts from './Admin/AdminProducts';
 import AdminOrders from "./Admin/AdminOrders";
 import CreateProduct from "./Admin/AdminProducts/components/product-add";
 import ProductDelete from "./Admin/AdminProducts/components/product-delete"
-import UserHistory from "./pages/UserHistory";
+import UserDevolution from "./pages/UserDevolution";
 
 const Routes = () => {
   return (
@@ -29,7 +29,7 @@ const Routes = () => {
       <Route path="/product/:id" component={ProductScreen} />
       <Route path="/user" exact component={User} />
       <Route path="/user/sign-in" exact component={UserSignin} />
-      <Route path="/user/history" exact component={UserHistory} />
+      <Route path="/user/devolution" exact component={UserDevolution} />
 
       <Route path="/admin" exact component={LoginAdmin} />
       <Route path="/user/sign-up" exact component={UserSignup} />

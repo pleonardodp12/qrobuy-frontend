@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   ProductDetailsContainer,
   ProductLabel,
@@ -7,33 +7,38 @@ import {
 } from "../styles";
 
 export const ProductDetails = ({ product, setDetails }) => {
+  const [productEdit, setProductEdit] = useState({...product});
 
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 
+
+  const onChange = event => {
+    setProductEdit(event.target.value)
+  }
   return (
     <ProductDetailsContainer>
       <TextWrapper>
 
         <ProductLabel>Nome:</ProductLabel>
-        <ProductInput value={product.name}></ProductInput>
+        <ProductInput value={productEdit.name} onChange={onChange}></ProductInput>
         
         <ProductLabel>Categoria:</ProductLabel>
-        <ProductInput value={product.category}></ProductInput>
+        <ProductInput value={productEdit.category}></ProductInput>
         
         <ProductLabel>Imagem:</ProductLabel>
-        <ProductInput value={product.image}></ProductInput>
+        <ProductInput value={productEdit.image}></ProductInput>
         
         <ProductLabel>Custo:</ProductLabel>
-        <ProductInput value={product.cost}></ProductInput>
+        <ProductInput value={productEdit.cost}></ProductInput>
 
         <ProductLabel>Preço:</ProductLabel>
-        <ProductInput value={product.price}></ProductInput>
+        <ProductInput value={productEdit.price}></ProductInput>
 
         <ProductLabel>Quantidade em estoque:</ProductLabel>
-        <ProductInput value={product.unit}></ProductInput>
+        <ProductInput value={productEdit.unit}></ProductInput>
         
         <ProductLabel>Descrição:</ProductLabel>
-        <ProductInput value={product.about}></ProductInput>
+        <ProductInput value={productEdit.about}></ProductInput>
       </TextWrapper>
       <button onClick={() => setDetails(false)}>close</button>
     </ProductDetailsContainer>

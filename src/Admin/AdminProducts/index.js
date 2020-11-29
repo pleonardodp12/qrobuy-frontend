@@ -38,8 +38,8 @@ const AdminProducts = () => {
       </Container>
      
       {details ? 
-      <BottomNavbar link="/" text="Salvar produto"/>  :
-        ''
+       '' :
+        <BottomNavbar link="/admin/create-product" text="Adicionar produto"/>
     }
     </>
   );

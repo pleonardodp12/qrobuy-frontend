@@ -9,7 +9,7 @@ import { editProduct } from '../../../redux/actions/productActions';
 import { connect } from 'react-redux';
 import BottomNavbar from "./bottomnavbar";
 
-export const ProductDetails = ({ product, setDetails }) => {
+export const ProductDetails = ({editProduct},{ product, setDetails }) => {
 
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 
@@ -39,7 +39,7 @@ export const ProductDetails = ({ product, setDetails }) => {
         <ProductInput value={product.about}></ProductInput>
       </TextWrapper>
       <button onClick={() => setDetails(false)}>close</button>
-     <BottomNavbar onClick="" link="/admin/create-product" text="Adicionar produto"/>
+      <BottomNavbar onClick={editProduct} link="/" text="Salvar produto"/> 
     </ProductDetailsContainer>
   );
 };

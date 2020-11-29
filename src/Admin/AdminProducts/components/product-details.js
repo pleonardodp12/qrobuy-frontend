@@ -9,12 +9,8 @@ import { editProduct } from '../../../redux/actions/productActions';
 import { connect } from 'react-redux';
 import BottomNavbar from "./bottomnavbar";
 
-<<<<<<< HEAD
-export const ProductDetails = ({ product, setDetails }) => {
-  const [productEdit, setProductEdit] = useState({...product});
-=======
 export const ProductDetails = ({editProduct, product, setDetails }) => {
->>>>>>> f84d40f3a88c8a4583205d4de22f2948fb011618
+  const [productEdit, setProductEdit] = useState({...product});
 
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 

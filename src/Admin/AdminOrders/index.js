@@ -5,19 +5,20 @@ import { Container, ListWrapper } from "./styles";
 import { mockedOrders } from "./__mocks__/mocked-orders"; // mocked values
 import { OrderDetails } from "./components/order-details";
 import { renderOrdersList } from "./components/order-list";
+import { makeAdminApi } from "../../services/adminApi";
+import { connect } from "react-redux";
 
-const AdminOrders = () => {
-  // const [orders, setOrders] = useState([]);
+const AdminOrders = ({account}) => {
   const [details, setDetails] = useState(false);
-  const [order, setOrder] = useState({});
+  const [orders, setOrder] = useState({});
 
   const getOrders = async () => {
-    // const ordersList = await qrobuyServer.get("/orders");
-    // setOrders(ordersList.body);
+    const response = await makeAdminApi(account.accessToken).get("/orders");
+    setOrder(response.data)
   };
 
   useEffect(() => {
-    // getOrders();
+    getOrders();
   }, []);
 
   const toggleDetails = (order) => {
@@ -29,12 +30,12 @@ const AdminOrders = () => {
     <>
       <Container>
         {details ? (
-          <OrderDetails order={order} setDetails={setDetails} />
+          <OrderDetails order={orders} setDetails={setDetails} />
         ) : (
           <>
-            <SearchButton /> {/* orders*/}
+            <SearchButton />
             <ListWrapper>
-              {renderOrdersList(mockedOrders, toggleDetails)}
+              {renderOrdersList(orders, toggleDetails)}
             </ListWrapper>
           </>
         )}
@@ -43,4 +44,8 @@ const AdminOrders = () => {
   );
 };
 
-export default AdminOrders;
+const mapStateToProps = (state) => {
+  return { account: state.account };
+};
+
+export default connect(mapStateToProps, {})(AdminOrders);

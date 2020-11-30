@@ -9,6 +9,7 @@ export const WrapperInput = styled.div`
 `;
 
 export const InputData = styled.div`
+  color: #BA181B;
   input {      
     height: 50px;
     width: 100%;
@@ -16,16 +17,12 @@ export const InputData = styled.div`
     border-radius: 12px;
     font-size: 16px;
     background-color: transparent;
-    color: #000000;
     font-weight: bold;
     padding-right: 10px;
     padding-left: 25%;
     padding-top: 6%;
     padding-bottom: 6%;
     position: relative;
-  }
-
-  input::placeholder {
     color: #BA181B;
   }
 

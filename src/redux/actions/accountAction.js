@@ -4,8 +4,12 @@ import { SIGN_IN, SIGN_UP } from "../../types"
 export const signInUser = (credentials) => async (dispatch) => {
   const response = await api.post("/signin", credentials);
   if (response.status === 200) {
-    dispatch({ type: SIGN_IN, payload: response.data });
-    localStorage.setItem("token",response.data.accessToken)
+    const account = {
+      accessToken: response.data.accessToken,
+      email: credentials.email,
+    }
+    dispatch({ type: SIGN_IN, payload: account });
+    localStorage.setItem("account", account)
   } else {
     // TODO: add a better error messaging system
     window.alert(response.status);
@@ -23,6 +27,6 @@ export const signUpUser = (credentials) => async (dispatch) => {
 };
 
 export const logout = () => async () => {
-  localStorage.removeItem('token')
+  localStorage.removeItem("account")
   window.location.pathname = '/user/sign-in'
 }

@@ -61,6 +61,24 @@ export const ProductBtns = styled.div`
 
 export const ProductDetailsContainer = styled.div`
   width: 100%;
+  display: grid;
+  img {
+    width: 15em;
+    margin: auto;
+    padding-top: 1em;
+  }
+
+  button {
+    border: none;
+    font-size: 18px;
+    background-color: #ba181b;
+    padding: 0.3em 1.2em;
+    margin: 0.5em;
+    border-radius: 2em;
+    text-decoration: none;
+    font-weight: 300;
+    color: #ffffff;
+  }
 `;
 
 export const TextWrapper = styled.div`

@@ -27,7 +27,7 @@ export const OrderDetails = ({ order, setDetails }) => {
         </OrderDetailsText>
         <OrderDetailsText>
           Valor: <span>{(order.price / 100).toFixed(2).replace(".", ",")}</span>
-        </OrderDetailsText>
+        </OrderDetailsText>  
         <OrderDetailsText>
           Retirado: <span>{order.retrieved ? "Sim" : "Não"}</span>
         </OrderDetailsText>

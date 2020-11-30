@@ -79,7 +79,7 @@ export const OrderDetailsText = styled.p`
   padding: 3%;
   font-size: 1rem;
   width: 100%;
-
+  
   span {
     color: #378036;
     font-weight: bold;

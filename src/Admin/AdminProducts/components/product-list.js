@@ -7,7 +7,7 @@ export const renderProductList = (product, toggleDetails) => {
   product.forEach((product, index) => {
     productList.push(
       <ProductListContainer key={index}>
-        <ProductItem order={product} handleClick={() => toggleDetails(product)} />
+        <ProductItem product={product} handleClick={() => toggleDetails(product)} />
       </ProductListContainer>
     );
   });

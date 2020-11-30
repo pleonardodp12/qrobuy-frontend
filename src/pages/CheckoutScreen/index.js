@@ -79,7 +79,9 @@ const CheckoutScreen = () => {
         return setPayment(true)
       })
       .catch(function (error) {
-        console.log(error);
+        if(error){
+          window.alert('Dados incorretos')
+        }
       });
   };
 

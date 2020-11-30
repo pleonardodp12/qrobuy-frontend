@@ -7,6 +7,7 @@ import { UserSigninContainer } from "./styles";
 import { Link } from "react-router-dom";
 import { FiLogOut } from 'react-icons/fi';
 import { GiCardExchange } from 'react-icons/gi';
+import { AiFillShopping } from 'react-icons/ai';
 
 const UserSignin = ({ signInUser, logout }) => {
   const [login, setLogin] = useState({
@@ -40,6 +41,7 @@ const UserSignin = ({ signInUser, logout }) => {
       <Link to="/user/sign-up"><h5>Não tem conta? <br />crie agora</h5></Link>
     </UserSigninContainer>) : (
       <UserSigninContainer>
+        <Link to="/cart"><ButtonConfirm textButton="Meu Carrinho" iconButton={<AiFillShopping />}/></Link>
         <Link to="/user/devolution"><ButtonConfirm textButton="Devoluções" iconButton={<GiCardExchange />}/></Link>
         <ButtonConfirm textButton="Logout" type="button"iconButton={<FiLogOut />} onClick={logout}/>
       </UserSigninContainer>

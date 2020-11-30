@@ -4,6 +4,7 @@ import { addToCart, removeFromCart } from '../../redux/actions/cartActions';
 import ButtonConfirm from '../../components/ButtonConfirm';
 import formatCurrency from '../../utils/formatCurrency';
 import { BiSad } from 'react-icons/bi';
+import { useSelector } from 'react-redux';
 import {
   ContainerCart,
   ProductOrderInfo,
@@ -19,6 +20,7 @@ import { Link } from 'react-router-dom';
 
 
 const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
+  const { isAuthenticated } = useSelector(state => state.account);
   return (
     <>
     {console.log('***CART ITEMS', cartItems)}
@@ -51,7 +53,7 @@ const CartScreen = ({ addToCart, removeFromCart, cartItems, product }) => {
             <strong>{formatCurrency(
               cartItems.reduce((a, c) => a + c.price * c.count, 0))}</strong>
           </ProductOrderInfo>
-          <Link to="/checkout">
+          <Link to={isAuthenticated === null ? "/user/sign-in" : "/checkout"}>
             <ButtonConfirm textButton="Finalizar"/>
           </Link>
         </>

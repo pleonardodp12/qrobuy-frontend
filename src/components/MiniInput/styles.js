@@ -12,7 +12,11 @@ export const MiniInputWrapper = styled.div`
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #BA181B;
+    color: #BA181B;
     color: grey;
     font-size: 18px;
+    ::placeholder {
+      color: grey;
+    }
   }
 `;

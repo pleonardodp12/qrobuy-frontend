@@ -37,6 +37,7 @@ const UserSignin = ({ signInUser, logout }) => {
         onChange={changeLogin}
       />
       <ButtonConfirm textButton="Entrar" type="submit" />
+      <Link to="/user/sign-up"><h5>Não tem conta? <br />crie agora</h5></Link>
     </UserSigninContainer>) : (
       <UserSigninContainer>
         <Link to="/user/devolution"><ButtonConfirm textButton="Devoluções" iconButton={<GiCardExchange />}/></Link>

@@ -12,8 +12,13 @@ import { CheckoutContainer, MiniInputSection } from "./styles";
 
 const CheckoutScreen = () => {
   const [info, setInfo] = useState({
-    email: "",
-    password: "",
+    cpf: "",
+    cardNumber: "",
+    cvv: "",
+    expirationMonth: "",
+    expirationYear: "",
+    cardHolderName: "",
+
   });
 
   const changeInput = (e) => {
@@ -22,14 +27,16 @@ const CheckoutScreen = () => {
   };
 
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const accountEmail = useSelector((state) => state.account);
+  console.log(accountEmail)
 
   const handleSubmitPayment = (event) => {
     event.preventDefault();
 
     const data = JSON.stringify({
       orderData: {
-        email: "teste@email.com.br",
-        cpf: "10683283049",
+        email: accountEmail,
+        cpf: info.cpf,
         delivered: false,
         price: cartItems.reduce((a, c) => a + c.price * c.count, 0),
         cartItems: cartItems,
@@ -37,11 +44,11 @@ const CheckoutScreen = () => {
       paymentData: {
         orderPrice: cartItems.reduce((a, c) => a + c.price * c.count, 0),
         orderReference: Math.random().toString(36).substring(2, 10),
-        cardNumber: "5448280000000007",
-        cvv: "235",
-        expirationMonth: "12",
-        expirationYear: "2020",
-        cardHolderName: "TESTE ONLINE",
+        cardNumber: info.cardNumber,
+        cvv: info.cvv,
+        expirationMonth: info.expirationMonth,
+        expirationYear: info.expirationYear,
+        cardHolderName: info.cardHolderName,
       },
     });
 
@@ -55,7 +62,6 @@ const CheckoutScreen = () => {
       },
       data: data,
     };
-
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
@@ -67,19 +73,21 @@ const CheckoutScreen = () => {
 
   return (
     <CheckoutContainer onSubmit={handleSubmitPayment}>
-      {/* {console.log(cartItems)} */}
       <InputCreditCard
         labelName="Cpf:"
         imgInput={<RiFolderUserFill />}
         onChange={changeInput}
         maxLength="14"
+        name="cpf"
       />
       <InputCreditCard
         labelName="Cartão:"
         imgInput={<FaRegCreditCard />}
         onChange={changeInput}
         maxLength="16"
+        name="cardNumber"
       />
+      <p>cartão: 5448280000000007</p>
       <MiniInputSection>
         <MiniInput
           labelName="cvv"
@@ -87,6 +95,8 @@ const CheckoutScreen = () => {
           min="000"
           max="999"
           onChange={changeInput}
+          name="cvv"
+          placeholder= "235"
         />
         <MiniInput
           labelName="Mês"
@@ -94,6 +104,8 @@ const CheckoutScreen = () => {
           min="01"
           max="12"
           onChange={changeInput}
+          name="expirationMonth"
+          placeholder= "12"
         />
         <MiniInput
           labelName="Ano"
@@ -101,12 +113,15 @@ const CheckoutScreen = () => {
           min="2020"
           max="2200"
           onChange={changeInput}
+          name="expirationYear"
+          placeholder= "2020"
         />
       </MiniInputSection>
       <InputCreditCard
         labelName="Nome do cartão:"
         imgInput={<FaUserCheck />}
         onChange={changeInput}
+        name="cardHolderName"
       />
       <ButtonConfirm
         textButton="Pagar"

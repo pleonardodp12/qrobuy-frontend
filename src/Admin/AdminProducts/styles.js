@@ -22,7 +22,7 @@ export const ProductDeletePage = styled.div`
 
 export const ListWrapper = styled.div`
   width: 100%;
-  padding: 0px .5em;
+  padding: 0px 0.5em;
 `;
 
 export const Name = styled.p`
@@ -37,7 +37,7 @@ export const ProductListContainer = styled.div`
 
 export const ProductItemContainer = styled.div`
   width: 100%;
-  padding: .2em;
+  padding: 0.2em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,16 +48,16 @@ export const ProductBtns = styled.div`
   svg {
     width: 20px;
     height: 20px;
-    margin: .2em;
-    color: #BA181B;
+    margin: 0.2em;
+    color: #ba181b;
     cursor: pointer;
-    transition: .2s;
+    transition: 0.2s;
 
-    &:hover{
+    &:hover {
       color: green;
     }
   }
-`
+`;
 
 export const ProductDetailsContainer = styled.div`
   width: 100%;
@@ -69,7 +69,7 @@ export const TextWrapper = styled.div`
   align-content: center;
   width: 100%;
   padding-top: 1em;
-  padding-Bottom: 10%;
+  padding-bottom: 10%;
 `;
 
 export const ProductDetailsText = styled.p`
@@ -83,31 +83,32 @@ export const ProductHead = styled.div`
 
   img {
     margin-right: 10px;
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     padding: 20px;
     border-radius: 8px;
     position: relative;
+    width: 6em;
+    height: 6em;
   }
-`
+`;
 
 export const ProductInput = styled.input`
   border: none;
-  border-bottom: 2px solid #A4161A;
+  border-bottom: 2px solid #a4161a;
   background: transparent;
   margin-bottom: 1em;
-  padding: .5em;
-  padding-bottom: .2em;
-`
+  padding: 0.5em;
+  padding-bottom: 0.2em;
+`;
 
 export const ProductLabel = styled.label`
   color: #636363;
-`
+`;
 
 export const BottomBar = styled.div`
   width: 100%;
   height: 50px;
-
-  background-color: #67BB65;
+  background-color: #67bb65;
   position: fixed;
   z-index: 5;
   bottom: 0;
@@ -116,20 +117,20 @@ export const BottomBar = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  
+
   svg {
     width: 32px;
     height: 32px;
     color: white;
     cursor: pointer;
-    &:hover{
-    opacity: .8;
-  }
+    &:hover {
+      opacity: 0.8;
+    }
   }
 `;
 
 export const ProductDeleteBtns = styled.div`
-  display: flex;  
+  display: flex;
   margin: 2em;
 
   button {
@@ -138,40 +139,41 @@ export const ProductDeleteBtns = styled.div`
     height: 40px;
     border-radius: 10px;
     border: none;
-    background-color:#BA181B;
+    background-color: #ba181b;
     transition: 100ms;
 
-    &:hover{
+    &:hover {
       cursor: pointer;
       opacity: 0.7;
     }
   }
 
   button:first-child {
-    background-color: #67BB65;
+    background-color: #67bb65;
   }
 
   a {
     text-decoration: none;
     color: #e5e5e5;
   }
-
-`
+`;
 
 export const ProductDeleteHead = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
-  p { text-align: center; }
+
+  p {
+    text-align: center;
+  }
 
   img {
     margin: 2em;
     width: 70%;
     height: auto;
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     padding: 20px;
     border-radius: 8px;
     position: relative;
   }
-`
+`;

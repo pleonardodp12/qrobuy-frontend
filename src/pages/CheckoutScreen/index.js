@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import axios from "axios";
 import InputCreditCard from "../../components/InputCreditCard";
@@ -8,7 +9,7 @@ import { MdAttachMoney } from "react-icons/md";
 import { FaUserCheck } from "react-icons/fa";
 import ButtonConfirm from "../../components/ButtonConfirm";
 import MiniInput from "../../components/MiniInput";
-import { CheckoutContainer, MiniInputSection } from "./styles";
+import { CheckoutContainer, MiniInputSection, PaymentScreen } from "./styles";
 
 const CheckoutScreen = () => {
   const [info, setInfo] = useState({
@@ -18,8 +19,13 @@ const CheckoutScreen = () => {
     expirationMonth: "",
     expirationYear: "",
     cardHolderName: "",
-
   });
+  const [order, setOrder] = useState({
+    emailCompra: '',
+    precoTotalCompra: '',
+    cpf: '',
+  })
+  const [payment, setPayment] = useState(null);
 
   const changeInput = (e) => {
     const { name, value } = e.target;
@@ -64,15 +70,32 @@ const CheckoutScreen = () => {
     };
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        localStorage.clear('cartItems')
+        setOrder({
+          emailCompra: response.data.email.account.email,
+          precoTotalCompra: response.data.price,
+          cpf: response.data.cpf,
+        })
+        return setPayment(true)
       })
       .catch(function (error) {
         console.log(error);
       });
   };
 
+  
+  console.log(order)
   return (
-    <CheckoutContainer onSubmit={handleSubmitPayment}>
+  <>
+    {payment === true ? (
+      <PaymentScreen>
+        <h1>Pagamento efetuado com sucesso!</h1>
+        <h5>cpf: {order.cpf}</h5>
+        <h5>Email: {order.emailCompra}</h5>
+        <h5>Preço total: <strong>{order.precoTotalCompra} R$</strong></h5>
+        <Link to="/"><ButtonConfirm textButton="OK"/></Link>
+      </PaymentScreen>) : (
+      <CheckoutContainer onSubmit={handleSubmitPayment}>
       <InputCreditCard
         labelName="Cpf:"
         imgInput={<RiFolderUserFill />}
@@ -129,6 +152,9 @@ const CheckoutScreen = () => {
         type="submit"
       />
     </CheckoutContainer>
+    )}
+    
+    </>
   );
 };
 

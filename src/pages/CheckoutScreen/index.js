@@ -72,11 +72,13 @@ const CheckoutScreen = () => {
         labelName="Cpf:"
         imgInput={<RiFolderUserFill />}
         onChange={changeInput}
+        maxLength="14"
       />
       <InputCreditCard
         labelName="Cartão:"
         imgInput={<FaRegCreditCard />}
         onChange={changeInput}
+        maxLength="16"
       />
       <MiniInputSection>
         <MiniInput
@@ -96,7 +98,7 @@ const CheckoutScreen = () => {
         <MiniInput
           labelName="Ano"
           type="number"
-          min="1970"
+          min="2020"
           max="2200"
           onChange={changeInput}
         />

@@ -10,10 +10,10 @@ export const OrderDetails = ({ order, setDetails }) => {
     <OrderDetailsContainer>
       <TextWrapper>
         <OrderDetailsText>Número do pedido: {order._id}</OrderDetailsText>
-        <OrderDetailsText>Nome: {order.name}</OrderDetailsText>
+        <OrderDetailsText>Nome: {order.email}</OrderDetailsText>
         <OrderDetailsText>CPF: {order.cpf}</OrderDetailsText>
         <OrderDetailsText>Data: {order.date}</OrderDetailsText>
-        <OrderDetailsText>ID transação: {order.tid}</OrderDetailsText>
+        <OrderDetailsText>ID transação: {order.transactionId}</OrderDetailsText>
         <OrderDetailsText>
           Valor: {(order.price / 100).toFixed(2).replace(".", ",")}
         </OrderDetailsText>

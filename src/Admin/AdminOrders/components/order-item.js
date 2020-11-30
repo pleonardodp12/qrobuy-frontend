@@ -3,8 +3,9 @@ import { Name, Subtitle, OrderPrice, OrderItemContainer } from "../styles";
 export const OrderItem = ({ order, handleClick }) => (
   <OrderItemContainer onClick={() => handleClick()}>
     <div>
-      <Name>{order.name}</Name>
-      <Subtitle>{order.tid}</Subtitle>
+      <Name>{order.email}</Name>
+      <Subtitle>{order._id}</Subtitle>
+      <Subtitle>{order.transactionId}</Subtitle>
     </div>
 
     <div>

@@ -106,7 +106,6 @@ export const ProductLabel = styled.label`
 export const BottomBar = styled.div`
   width: 100%;
   height: 50px;
-
   background-color: #67BB65;
   position: fixed;
   z-index: 5;

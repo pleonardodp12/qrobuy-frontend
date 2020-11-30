@@ -14,7 +14,6 @@ export const ProductDetails = ({editProduct, product, setDetails }) => {
 
   //o ideal era ter feito um forEach pra renderizar os detalhes com label/input... assim é horroroso HAHAHA
 
-
   const onChange = event => {
     setProductEdit(event.target.value)
   }

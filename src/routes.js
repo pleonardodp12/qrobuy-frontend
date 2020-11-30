@@ -20,7 +20,7 @@ import UserDevolution from "./pages/UserDevolution";
 
 const Routes = () => {
   return (
-    <BrowserRouter basename="/">
+    <BrowserRouter>
       <HeaderNav />
       <Route path="/" exact component={HomeScreen} />
       <Route path="/cart" component={CartScreen} />

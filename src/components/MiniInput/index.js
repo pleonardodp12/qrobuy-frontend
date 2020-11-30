@@ -1,5 +1,5 @@
-import React from 'react';
-import { MiniInputWrapper } from './styles';
+import React from "react";
+import { MiniInputWrapper } from "./styles";
 
 const MiniInput = ({ labelName, ...rest }) => {
   return (
@@ -7,7 +7,7 @@ const MiniInput = ({ labelName, ...rest }) => {
       <label>{labelName}</label>
       <input type="text" required {...rest} />
     </MiniInputWrapper>
-  )
-}
+  );
+};
 
 export default MiniInput;

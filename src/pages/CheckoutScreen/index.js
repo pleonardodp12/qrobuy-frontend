@@ -82,19 +82,22 @@ const CheckoutScreen = () => {
         <MiniInput
           labelName="cvv"
           type="number"
-          maxLength="3"
+          min="000"
+          max="999"
           onChange={changeInput}
         />
         <MiniInput
           labelName="Mês"
           type="number"
-          maxLength="2"
+          min="01"
+          max="12"
           onChange={changeInput}
         />
         <MiniInput
           labelName="Ano"
           type="number"
-          maxLength="4"
+          min="1970"
+          max="2200"
           onChange={changeInput}
         />
       </MiniInputSection>

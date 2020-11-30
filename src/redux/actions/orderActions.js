@@ -1,7 +1,7 @@
 import { CLEAR_CART, CLEAR_ORDER, CREATE_ORDER } from '../../types';
 import api from '../../services/api';
 
-export const createOrder = (order) => (dispatch) => {
+export const createOrder = (order) => async (dispatch) => {
   // methodo post 
   await api.post("/orders", {
     headers: {

@@ -4,7 +4,6 @@ import BottomNavbar from "./components/bottomnavbar";
 import SearchButton from "../../components/SearchButton";
 import { Container, ListWrapper } from "./styles";
 
-import { mockedProducts } from "./__mocks__/mocked-products"; // mocked values
 import { ProductDetails } from "./components/product-details";
 import { renderProductList } from "./components/product-list";
 import { connect } from "react-redux";

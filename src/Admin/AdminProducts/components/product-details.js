@@ -16,7 +16,7 @@ export const ProductDetails = ({ editProduct, product, setDetails }) => {
     setProductEdit(event.target.value);
   };
 
-  console.log(product)
+
   return (
     <ProductDetailsContainer>
       <TextWrapper>
@@ -62,10 +62,13 @@ export const ProductDetails = ({ editProduct, product, setDetails }) => {
           onChange={onChange}
         ></ProductInput>
       </TextWrapper>
-      <button onClick={() => setDetails(false)}>close</button>
+      <img
+        src={product.qrCodeString}
+        alt="QRcode to the product on the storefront"
+      />
+      <img src={product.imageUrl} alt="Img from amazon s3" />
+      <button onClick={() => setDetails(false)}>Voltar sem salvar</button>
       <BottomNavbar onClick={editProduct} link="/" text="Salvar produto" />
-      <img src={product.qrCodeString} />
-      <img src={product.imageUrl} />
     </ProductDetailsContainer>
   );
 };

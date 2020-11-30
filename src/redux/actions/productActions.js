@@ -1,7 +1,5 @@
 import api from "../../services/api";
 import { FETCH_PRODUCTS, DELETE_PRODUCT, CREATE_PRODUCT, EDIT_PRODUCT } from "../../types";
-import mockedProducts from "../../__mocks__/mocked-products";
-import axios from "axios";
 
 export const fetchProducts = () => async (dispatch) => {
   const response = await api.get("/products")
@@ -11,76 +9,55 @@ export const fetchProducts = () => async (dispatch) => {
       payload: response.data,
     });
   } else {
-    // TODO: add a better error messaging system
     window.alert(response.status);
   }
 };
 
-export const deleteProduct = (product) => //async
- (dispatch) => {
-  console.log('entrou')
-
-   dispatch({
+export const deleteProduct = (product, match) => async (dispatch) => {
+  await api.delete(`/product/${match.params.id}`, {
+    headers: {
+    },
+    method: 'DELETE',
+    body: JSON.stringify(product)
+  })
+    .then(res => res.json())
+    .then(data => {
+      dispatch({
         type: DELETE_PRODUCT,
-        payload: 'oi vc entrou'
+        payload: data.id
       });
-
-//  await api.delete("/product/:id", {
-//    headers: {
-      
-//    },
-//    method: 'DELETE',
-//    body: JSON.stringify(product)
-//  })
-//    .then(res => res.json())
-//    .then(data => {
-//      dispatch({
-//        type: DELETE_PRODUCT,
-//        payload: data.id
-//      });
-//    });
+    });
 };
 
-export const editProduct = (product) => //async
- (dispatch) => {
-  console.log('entrou')
-
-   dispatch({
-        type: EDIT_PRODUCT,
-        payload: 'oi vc entrou'
-      });
-
-//  await api.patch("/product/:id", {
-//    headers: {
+export const editProduct = (product) => async (dispatch) => {
+  await api.patch("/product/:id", {
+    headers: {
       
-//    },
-//    method: 'PATCH',
-//    body: JSON.stringify(product)
-//  })
-//    .then(res => res.json())
-//    .then(data => {
-//      dispatch({
-//        type: EDIT_PRODUCT,
-//        payload: data
-//      });
-//    });
+    },
+    method: 'PATCH',
+    body: JSON.stringify(product)
+  })
+    .then(res => res.json())
+    .then(data => {
+      dispatch({
+        type: EDIT_PRODUCT,
+        payload: data
+      });
+  });
 }
 
-export const createProduct = (product) => (dispatch) => {
-  // methodo post 
-  //await
- // api.post("/product/:id", {
- //   headers: {
- //
- //   },
- //   method: 'POST',
- //   body: JSON.stringify(product)
- // })
- //   .then(res => res.json())
- //   .then(data => {
- //     dispatch({
- //       type: CREATE_PRODUCT,
- //       payload: data
- //     });
- //   });
+export const createProduct = (product, match) => async (dispatch) => {
+ await api.post(`/product/${match.params.id}`, {
+   headers: {
+   },
+   method: 'POST',
+   body: JSON.stringify(product)
+ })
+   .then(res => res.json())
+   .then(data => {
+     dispatch({
+       type: CREATE_PRODUCT,
+       payload: data
+     });
+   });
 };

@@ -8,13 +8,17 @@ import { renderOrdersList } from "./components/order-list";
 import { makeAdminApi } from "../../services/adminApi";
 import { connect } from "react-redux";
 
-const AdminOrders = ({account}) => {
+const AdminOrders = ({ account }) => {
+  const [orders, setOrders] = useState([]);
   const [details, setDetails] = useState(false);
-  const [orders, setOrder] = useState({});
+  const [order, setOrder] = useState({});
 
   const getOrders = async () => {
-    const response = await makeAdminApi(account.accessToken).get("/orders");
-    setOrder(response.data)
+    const response = await makeAdminApi(
+      // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVmYzBlYzY4YThmM2I3MDAzNDY2MDAzYyIsImlhdCI6MTYwNjcwNTE2Mn0.cz-FOQEbIUX9leuqgKrUsxvK_eATwwA5MunVdQRK33E"
+      account.accessToken
+    ).get("/orders");
+    setOrders(response.data);
   };
 
   useEffect(() => {
@@ -25,18 +29,17 @@ const AdminOrders = ({account}) => {
     setDetails(!details);
     setOrder(order);
   };
+  console.log(orders)
 
   return (
     <>
       <Container>
         {details ? (
-          <OrderDetails order={orders} setDetails={setDetails} />
+          <OrderDetails order={order} setDetails={setDetails} />
         ) : (
           <>
             <SearchButton />
-            <ListWrapper>
-              {renderOrdersList(orders, toggleDetails)}
-            </ListWrapper>
+            <ListWrapper>{renderOrdersList(orders, toggleDetails)}</ListWrapper>
           </>
         )}
       </Container>

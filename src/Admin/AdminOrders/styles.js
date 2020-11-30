@@ -7,6 +7,8 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 2%;
+  padding-bottom: 2%;
 `;
 
 export const ListWrapper = styled.div`
@@ -24,6 +26,7 @@ export const Subtitle = styled.p`
 
 export const OrderPrice = styled.span`
   color: #378036;
+  font-weight: bold;
 `;
 
 export const OrderListContainer = styled.div`
@@ -43,6 +46,25 @@ export const OrderItemContainer = styled.div`
 export const OrderDetailsContainer = styled.div`
   width: 100%;
   padding: 10% 5% 5% 5%;
+
+  h3 {
+    text-align: center;
+  }
+
+  button { 
+    width: 100%;
+    display: block; 
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #378036;
+    font-weight: bold;
+    border: none;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 10%;
+  }
 `;
 
 export const TextWrapper = styled.div`
@@ -50,11 +72,17 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   align-content: center;
   width: 100%;
-  paddingBottom: 10%;
+  paddingbottom: 10%;
 `;
 
 export const OrderDetailsText = styled.p`
-  padding: 5%;
-  font-size: 14px;
+  padding: 3%;
+  font-size: 1rem;
   width: 100%;
+  
+  span {
+    color: #378036;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
 `;

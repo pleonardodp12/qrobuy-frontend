@@ -49,7 +49,6 @@ const UserSignin = ({ signInUser, logout }) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.account)
   return { account: state.account };
 };
 

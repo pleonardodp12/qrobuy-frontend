@@ -1,4 +1,4 @@
-import React,  { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 import BottomNavbar from "./components/bottomnavbar";
 import SearchButton from "../../components/SearchButton";
@@ -7,42 +7,50 @@ import { Container, ListWrapper } from "./styles";
 import { mockedProducts } from "./__mocks__/mocked-products"; // mocked values
 import { ProductDetails } from "./components/product-details";
 import { renderProductList } from "./components/product-list";
+import { connect } from "react-redux";
+import { fetchProducts } from "../../redux/actions/productActions";
 
-const AdminProducts = () => {
-  // const [orders, setOrders] = useState([]);
+const AdminProducts = ({ fetchProducts, products }) => {
   const [details, setDetails] = useState(false);
   const [product, setProduct] = useState({});
 
-  const getProduct = async () => {
-    // const ordersList = await qrobuyServer.get("/orders");
-    // setOrders(ordersList.body);
-  };
-
   useEffect(() => {
-    // getOrders();
+    fetchProducts();
   }, []);
 
   const toggleDetails = (product) => {
     setDetails(!details);
     setProduct(product);
   };
+  
+  if (products !== undefined) {
+    return (
+      <>
+        <Container>
+          <SearchButton />
+          {details ? (
+            <ProductDetails product={product} setDetails={setDetails} />
+          ) : (
+            <ListWrapper>
+              {renderProductList(products, toggleDetails)}
+            </ListWrapper>
+          )}
+        </Container>
 
-  return (
-    <>
-      <Container>
-        <SearchButton /> 
-        {details ?
-          <ProductDetails product={product} setDetails={setDetails} /> :  
-          <ListWrapper>{renderProductList(mockedProducts, toggleDetails)}</ListWrapper>
-        }
-      </Container>
-     
-      {details ? 
-       '' :
-        <BottomNavbar link="/admin/create-product" text="Adicionar produto"/>
-    }
-    </>
-  );
+        {details ? (
+          ""
+        ) : (
+          <BottomNavbar link="/admin/create-product" text="Adicionar produto" />
+        )}
+      </>
+    );
+  } else {
+    return <div>Carregando...</div>;
+  }
 };
 
-export default AdminProducts;
+const mapStateToProps = (state) => {
+  return { products: state.products.items };
+};
+
+export default connect(mapStateToProps, { fetchProducts })(AdminProducts);

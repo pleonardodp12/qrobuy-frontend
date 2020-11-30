@@ -19,6 +19,6 @@ export const makeAdminApi = (accessToken) => {
       "x-access-token": accessToken,
       "Content-Type": "application/json",
     },
-    baseURL: "http://localhost:3333/api/v1",
+    baseURL: "https://qrobuy-backend.herokuapp.com/api/v1",
   });
 };
